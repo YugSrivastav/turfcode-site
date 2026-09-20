@@ -101,7 +101,7 @@ export default function ConcurrencyEngineInteractive() {
       icon: Terminal,
       number: '04',
       title: '3-Pane Cockpit TUI',
-      tag: 'Blessed Port 7873',
+      tag: 'Blessed Engine',
       metric: 'Zero Latency',
       oneLiner: 'Keyboard-driven terminal cockpit with live lock telemetry.',
     },
@@ -139,7 +139,7 @@ export default function ConcurrencyEngineInteractive() {
         {/* Live Status indicator badge */}
         <div className="shrink-0 font-mono text-xs px-4 py-2.5 rounded-xl bg-[#0B130E] border border-[#193122] text-[#D4EC5B] flex items-center gap-3">
           <span className="w-2.5 h-2.5 rounded-full bg-[#A2C304] animate-pulse"></span>
-          <span>Engine Status: Active (Port 7873)</span>
+          <span>Engine Status: Active</span>
         </div>
       </div>
 
@@ -635,7 +635,7 @@ export default function ConcurrencyEngineInteractive() {
                   Persistent 3-Pane Cockpit TUI
                 </h4>
                 <p className="text-xs font-mono text-[#D4EC5B]">
-                  Keyboard-first Blessed terminal running on localhost:7873
+                  Keyboard-first Blessed terminal running on local IPC daemon
                 </p>
               </div>
 
@@ -696,7 +696,7 @@ export default function ConcurrencyEngineInteractive() {
                 <div className="rounded-xl border border-[#193122] bg-[#0B130E] overflow-hidden font-mono text-xs">
                   {/* TUI Title Bar */}
                   <div className="bg-[#101C15] px-3 py-1.5 border-b border-[#193122] flex items-center justify-between text-[11px] text-[#D4EC5B]">
-                    <span>TURFCODE COCKPIT [ROOM: #7873-PITCH]</span>
+                    <span>TURFCODE COCKPIT [ROOM: #PITCH]</span>
                     <span className="text-[#A2C304]">● DAEMON SYNCED</span>
                   </div>
 
@@ -731,7 +731,7 @@ export default function ConcurrencyEngineInteractive() {
                         $ turf status --live
                       </div>
                       <div className="text-[#D1D5DB] text-[11px] leading-relaxed">
-                        [03:14:22] IPC socket ready: /tmp/turf-7873.sock<br />
+                        [03:14:22] IPC socket ready: /tmp/turf.sock<br />
                         [03:14:23] Claude-3.5 tool call intercepted: fs.writeFile<br />
                         [03:14:24] Lock claimed: auth.ts (15s watchdog)<br />
                         [03:14:25] Rebased speculative worktree in 41ms
@@ -750,7 +750,7 @@ export default function ConcurrencyEngineInteractive() {
               </div>
 
               <div className="text-xs font-mono text-[#6B7280] pt-4 border-t border-[#193122]">
-                Port 7873 WebSocket • Standalone Node Blessed executable • Zero browser dependencies
+                Local Daemon WebSocket • Standalone Node Blessed executable • Zero browser dependencies
               </div>
             </div>
           </div>

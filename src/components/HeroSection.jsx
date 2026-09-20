@@ -64,8 +64,6 @@ export default function HeroSection() {
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#101C15]/90 border border-[#193122] text-xs font-mono text-[#D4EC5B] shadow-sm backdrop-blur-md">
             <span className="w-2 h-2 rounded-full bg-[#A2C304] animate-pulse"></span>
             <span>Craftora 9-Hour Build Sprint • Team Ace of Spade</span>
-            <span className="text-[#6B7280]">|</span>
-            <span className="text-[#A2C304] font-semibold">Port 7873</span>
           </div>
 
           {/* Main Value Headline */}

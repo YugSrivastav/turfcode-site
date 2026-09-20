@@ -58,7 +58,7 @@ export const corePillars = [
     subtitle: 'Built for terminal power-users',
     description:
       'Developers live in terminal windows. Turfcode features a native Blessed TUI inspired by Herdr, featuring a collapsible sidebar (Ctrl+B), authentic native shell with zero agent bias, live file lock monitors, and team chat.',
-    metric: 'Blessed TUI + Port 7873',
+    metric: 'Blessed TUI Native',
     tag: 'Terminal Native',
   },
 ];

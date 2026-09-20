@@ -5,7 +5,7 @@ export default function InteractiveTerminalCockpit() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState('cockpit'); // cockpit | chat
   const [terminalLogs, setTerminalLogs] = useState([
-    { type: 'system', text: 'TURFCODE v1.0.0 — Concurrency Engine Initialized on port 7873' },
+    { type: 'system', text: 'TURFCODE v1.0.0 — Concurrency Engine Initialized' },
     { type: 'info', text: 'Room #ACE-SPADE paired (Host: Yug, Peers: Ayush, Krishna, Nakshatra)' },
     { type: 'shell', text: '$ turf status' },
     { type: 'output', text: 'Worktrees active: 4 | JIT Locks active: 1 | AST Conflict: 0' },
@@ -126,7 +126,7 @@ export default function InteractiveTerminalCockpit() {
     addLog('system', '   > ^ <');
     addLog('system', '  /|   |\\');
     addLog('system', ' (_|   |_)');
-    addLog('success', '✓ [TURF COMPANION] Daemon active on port 7873. Zero waitlists, ready to build.');
+    addLog('success', '✓ [TURF COMPANION] Daemon active. Zero waitlists, ready to build.');
   };
 
   const handleSendChat = (e) => {
@@ -200,7 +200,7 @@ export default function InteractiveTerminalCockpit() {
               <span className="w-3 h-3 rounded-full bg-yellow-500/80"></span>
               <span className="w-3 h-3 rounded-full bg-[#A2C304]/80"></span>
               <span className="ml-3 text-[#94A3B8] font-semibold hidden sm:inline">
-                turfcode-cockpit — blessed v0.1.81 • room: #7873
+                turfcode-cockpit — blessed v0.1.81 • room: #pitch
               </span>
             </div>
             

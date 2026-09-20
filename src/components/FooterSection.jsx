@@ -60,7 +60,7 @@ export default function FooterSection() {
             Built with dedication for Craftora Hackathon by <span className="text-[#F0FDF4] font-semibold">Team Ace of Spade</span>.
           </div>
           <div>
-            Node.js v20+ • Blessed TUI • Claude 3.5 Sonnet Peacemaker • Port 7873
+            Node.js v20+ • Blessed TUI • Claude 3.5 Sonnet Peacemaker
           </div>
         </div>
       </div>

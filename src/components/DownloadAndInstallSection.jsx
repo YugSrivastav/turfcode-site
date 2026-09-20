@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Copy, Check, ArrowRight, Download, Terminal } from 'lucide-react';
+import { Copy, Check, ArrowRight, Download, Terminal, CheckCircle2 } from 'lucide-react';
 
 export default function DownloadAndInstallSection() {
   const [copied, setCopied] = useState(false);
@@ -9,6 +9,7 @@ export default function DownloadAndInstallSection() {
   const windowsCommand = 'iwr -useb https://turfcode.dev/install.ps1 | iex';
 
   const activeCommand = currentPlatform === 'windows' ? windowsCommand : unixCommand;
+  const activePrompt = currentPlatform === 'windows' ? 'PS>' : '$';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(activeCommand);
@@ -29,54 +30,77 @@ export default function DownloadAndInstallSection() {
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg text-[#94A3B8] font-body max-w-2xl leading-relaxed">
-            One command, and git merge collisions are history — the agent CLIs you already run keep coding at 250 tokens per second, but now you never drop the ball on conflicting diffs.
+            One command, and git merge collisions are history: the agent CLIs you already run keep coding at 250 tokens per second, but now you never drop the ball on conflicting diffs.
           </p>
 
-          {/* Unified Sleek Command Bar (Herdr style) */}
-          <div className="space-y-3 pt-2">
-            <div className="flex items-center justify-between p-2 sm:p-2.5 pl-4 sm:pl-5 rounded-lg bg-[#0B130E] border border-[#193122] font-mono text-xs sm:text-sm text-[#D4EC5B] focus-within:border-[#A2C304] transition-colors shadow-turf-card max-w-2xl">
-              <div className="flex items-center gap-3 overflow-x-auto text-left">
-                <span className="text-[#A2C304] select-none font-bold">$</span>
+          {/* Platform Tabs & Command Bar */}
+          <div className="space-y-3 pt-2 max-w-2xl">
+            
+            {/* Clear Platform Switcher Tabs */}
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setCurrentPlatform('unix')}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all border ${
+                  currentPlatform === 'unix'
+                    ? 'bg-[#101C15] border-[#A2C304] text-[#A2C304] shadow-turf-glow'
+                    : 'bg-[#0B130E] border-[#193122] text-[#94A3B8] hover:text-[#F0FDF4] hover:border-[#264A34]'
+                }`}
+              >
+                macOS & Linux (bash)
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setCurrentPlatform('windows')}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all border ${
+                  currentPlatform === 'windows'
+                    ? 'bg-[#101C15] border-[#A2C304] text-[#A2C304] shadow-turf-glow'
+                    : 'bg-[#0B130E] border-[#193122] text-[#94A3B8] hover:text-[#F0FDF4] hover:border-[#264A34]'
+                }`}
+              >
+                Windows (PowerShell)
+              </button>
+            </div>
+
+            {/* Unified Sleek Command Bar */}
+            <div className="flex items-center justify-between p-2 sm:p-2.5 pl-4 sm:pl-5 rounded-lg bg-[#0B130E] border border-[#193122] font-mono text-xs sm:text-sm text-[#D4EC5B] focus-within:border-[#A2C304] transition-colors shadow-turf-card">
+              <div className="flex items-center gap-3 overflow-x-auto text-left py-1">
+                <span className="text-[#A2C304] select-none font-bold shrink-0">{activePrompt}</span>
                 <code className="whitespace-nowrap text-[#F0FDF4] font-medium">{activeCommand}</code>
               </div>
               <button
                 onClick={handleCopy}
-                className="px-4 py-2 rounded bg-[#101C15] hover:bg-[#193122] text-[#A2C304] hover:text-[#B0D504] text-xs font-mono font-bold uppercase tracking-wider border border-[#193122] transition-colors shrink-0 ml-3"
+                className="px-4 py-2 rounded bg-[#101C15] hover:bg-[#193122] text-[#A2C304] hover:text-[#B0D504] text-xs font-mono font-bold uppercase tracking-wider border border-[#193122] transition-colors shrink-0 ml-3 flex items-center gap-1.5"
                 title="Copy install command"
               >
-                {copied ? 'COPIED' : 'COPY'}
+                {copied ? (
+                  <>
+                    <Check className="w-3.5 h-3.5" />
+                    <span>COPIED</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>COPY</span>
+                  </>
+                )}
               </button>
             </div>
 
-            {/* Platform links and standalone exe download */}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-mono text-[#6B7280]">
-              <span>
-                Windows PowerShell:{' '}
-                <button
-                  type="button"
-                  onClick={() => setCurrentPlatform(currentPlatform === 'windows' ? 'unix' : 'windows')}
-                  className="text-[#D4EC5B] hover:text-[#A2C304] underline underline-offset-2 transition-colors font-semibold"
-                >
-                  {currentPlatform === 'windows' ? 'switch to macOS / Linux' : 'iwr -useb https://turfcode.dev/install.ps1 | iex'}
-                </button>
-              </span>
-              <span>—</span>
+            {/* Clean Direct Standalone Download Link */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono text-[#6B7280] pt-1 px-1">
+              <span>Automatic architecture detection (x86_64 / arm64)</span>
               <a
                 href="https://github.com/YugSrivastav/turfcode-site/releases/latest/download/turfcode-setup.exe"
-                className="text-[#A2C304] hover:text-[#B0D504] hover:underline flex items-center gap-1 transition-colors"
+                className="text-[#A2C304] hover:text-[#B0D504] hover:underline flex items-center gap-1 transition-colors font-medium shrink-0"
               >
+                <Download className="w-3.5 h-3.5" />
                 <span>Standalone Windows .exe</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
-              <span>·</span>
-              <button
-                type="button"
-                onClick={() => setCurrentPlatform('unix')}
-                className={`hover:text-[#A2C304] transition-colors ${currentPlatform === 'unix' ? 'text-[#D4EC5B]' : 'text-[#6B7280]'}`}
-              >
-                macOS & Linux (Universal)
-              </button>
             </div>
+
           </div>
 
           {/* Quick-Start Launch Steps */}
