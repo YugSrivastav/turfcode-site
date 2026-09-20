@@ -80,6 +80,11 @@ export default function InteractiveTerminalCockpit() {
       return;
     }
 
+    if (cleanCmd === 'cat' || cleanCmd === 'turf cat' || cleanCmd === 'mascot') {
+      triggerCatMascot();
+      return;
+    }
+
     // Default response
     addLog('output', `[turf] executed: "${cleanCmd}". Cluster state synchronized.`);
   };
@@ -113,6 +118,15 @@ export default function InteractiveTerminalCockpit() {
     setTimeout(() => {
       triggerSimulateConflict();
     }, 1200);
+  };
+
+  const triggerCatMascot = () => {
+    addLog('system', '   /\\_/\\');
+    addLog('system', '  ( o.o )   HELLO /');
+    addLog('system', '   > ^ <');
+    addLog('system', '  /|   |\\');
+    addLog('system', ' (_|   |_)');
+    addLog('success', '✓ [TURF COMPANION] Daemon active on port 7873. Zero waitlists, ready to build.');
   };
 
   const handleSendChat = (e) => {
@@ -159,6 +173,12 @@ export default function InteractiveTerminalCockpit() {
             >
               <GitMerge className="w-3.5 h-3.5 text-[#00E599]" />
               <span>Simulate Conflict</span>
+            </button>
+            <button
+              onClick={triggerCatMascot}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#86EFAC] border border-[#193122] transition-colors"
+            >
+              <span>🐱 Turf Cat</span>
             </button>
             <button
               onClick={triggerFullDemo}

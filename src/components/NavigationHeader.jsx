@@ -24,15 +24,6 @@ export default function NavigationHeader() {
           </div>
         </a>
 
-        {/* Live Pitch Broadcast Indicator */}
-        <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-[#101C15] border border-[#193122] text-xs font-mono">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00E599] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00E599]"></span>
-          </span>
-          <span className="text-[#86EFAC]">Pitch Room #7873 Active</span>
-        </div>
-
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           <a href="#product" className="text-[#94A3B8] hover:text-[#00E599] transition-colors">
@@ -44,9 +35,6 @@ export default function NavigationHeader() {
           </a>
           <a href="#download" className="text-[#94A3B8] hover:text-[#00E599] transition-colors">
             Downloads
-          </a>
-          <a href="#waitlist" className="text-[#94A3B8] hover:text-[#00E599] transition-colors">
-            Waitlist
           </a>
           <a
             href="#download"
@@ -78,10 +66,6 @@ export default function NavigationHeader() {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#0B130E] border-b border-[#193122] px-4 pt-3 pb-6 space-y-3 font-mono text-sm">
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded bg-[#101C15] border border-[#193122] text-xs text-[#86EFAC]">
-            <Radio className="w-3.5 h-3.5 text-[#00E599] animate-pulse" />
-            <span>Hackathon Live Room: Connected</span>
-          </div>
           <a
             href="#product"
             onClick={() => setMobileMenuOpen(false)}
@@ -102,13 +86,6 @@ export default function NavigationHeader() {
             className="block px-3 py-2 rounded text-[#94A3B8] hover:bg-[#101C15] hover:text-[#00E599]"
           >
             3. Download Matrix (Linux/Mac/Win)
-          </a>
-          <a
-            href="#waitlist"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded text-[#94A3B8] hover:bg-[#101C15] hover:text-[#00E599]"
-          >
-            4. Early Access CRT Waitlist
           </a>
         </div>
       )}

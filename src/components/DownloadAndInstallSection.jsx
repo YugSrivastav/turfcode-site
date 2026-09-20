@@ -100,36 +100,70 @@ export default function DownloadAndInstallSection() {
           ))}
         </div>
 
-        {/* Quick-Start 3-Step Guide */}
-        <div className="p-8 rounded-2xl bg-[#0B130E] border border-[#193122] space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#193122] pb-4">
-            <h4 className="font-display font-bold text-lg text-[#F0FDF4]">
-              3-Step Hackathon Launch Sequence
-            </h4>
-            <span className="font-mono text-xs text-[#00E599]">
-              Zero config needed
-            </span>
+        {/* Quick-Start 3-Step Guide & Retro Terminal Companion Mascot */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* 3-Step Sequence (8 cols on lg) */}
+          <div className="lg:col-span-8 p-6 sm:p-8 rounded-2xl bg-[#0B130E] border border-[#193122] space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#193122] pb-4">
+              <h4 className="font-display font-bold text-lg text-[#F0FDF4]">
+                3-Step Hackathon Launch Sequence
+              </h4>
+              <span className="font-mono text-xs text-[#00E599]">
+                Zero config needed
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {quickStartCommands.map((item) => (
+                <div
+                  key={item.step}
+                  className="p-4 rounded-xl bg-[#101C15] border border-[#193122] space-y-2"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-[#00E599] text-[#060A07] font-bold font-mono text-xs flex items-center justify-center">
+                      {item.step}
+                    </span>
+                    <span className="text-xs font-semibold text-[#F0FDF4] font-body">
+                      {item.label}
+                    </span>
+                  </div>
+                  <div className="p-2 rounded bg-[#060A07] border border-[#193122] font-mono text-xs text-[#00E599] select-all">
+                    $ {item.cmd}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {quickStartCommands.map((item) => (
-              <div
-                key={item.step}
-                className="p-4 rounded-xl bg-[#101C15] border border-[#193122] space-y-2"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="w-6 h-6 rounded-full bg-[#00E599] text-[#060A07] font-bold font-mono text-xs flex items-center justify-center">
-                    {item.step}
-                  </span>
-                  <span className="text-xs font-semibold text-[#F0FDF4] font-body">
-                    {item.label}
-                  </span>
-                </div>
-                <div className="p-2 rounded bg-[#060A07] border border-[#193122] font-mono text-xs text-[#00E599] select-all">
-                  $ {item.cmd}
-                </div>
+          {/* Retro CRT Phosphor Cat Companion Mascot (4 cols on lg) */}
+          <div className="lg:col-span-4 p-6 rounded-2xl border-2 border-dashed border-[#00E599]/40 bg-[#08120B] shadow-turf-glow crt-scanlines flex flex-col justify-between space-y-4">
+            <div className="flex items-center justify-between border-b border-[#193122] pb-3 text-xs font-mono">
+              <span className="text-[#00E599] font-bold uppercase tracking-wider">
+                TURF COMPANION
+              </span>
+              <span className="text-[#86EFAC]/70 text-[10px]">
+                PORT 7873
+              </span>
+            </div>
+
+            <div className="flex flex-col items-center justify-center py-2">
+              <pre className="font-mono text-[#00E599] text-xs leading-tight select-none">
+{`      /\\_/\\
+     ( o.o )   HELLO /
+      > ^ <
+     /|   |\\
+    (_|   |_)`}
+              </pre>
+            </div>
+
+            <div className="text-center font-mono text-xs space-y-1">
+              <div className="text-[#F0FDF4] font-semibold">
+                No waitlists. Zero gating.
               </div>
-            ))}
+              <p className="text-[11px] text-[#86EFAC]/70 font-body">
+                Run the curl command, pair with your team, and start vibe-coding with agents.
+              </p>
+            </div>
           </div>
         </div>
 

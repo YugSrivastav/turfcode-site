@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Copy, Check, Play, QrCode, Volume2, VolumeX } from 'lucide-react';
+import { Copy, Check, Play, Download, Volume2, VolumeX } from 'lucide-react';
 import { theProblemCrisis } from '../data/productFeatures';
 
 export default function HeroSection() {
@@ -126,11 +126,11 @@ export default function HeroSection() {
               Try Mobile TUI Simulator
             </a>
             <a
-              href="#waitlist"
+              href="#download"
               className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#101C15]/90 hover:bg-[#193122] text-[#F0FDF4] font-medium text-sm font-mono border border-[#193122] transition-all hover:-translate-y-0.5 backdrop-blur-sm"
             >
-              <QrCode className="w-4 h-4 text-[#00E599]" />
-              Join Hackathon Early Access
+              <Download className="w-4 h-4 text-[#00E599]" />
+              Download CLI & App
             </a>
           </div>
 

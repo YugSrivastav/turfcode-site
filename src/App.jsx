@@ -4,7 +4,6 @@ import HeroSection from './components/HeroSection';
 import ProductDetailsSection from './components/ProductDetailsSection';
 import InteractiveTerminalCockpit from './components/InteractiveTerminalCockpit';
 import DownloadAndInstallSection from './components/DownloadAndInstallSection';
-import RetroWaitlistTerminal from './components/RetroWaitlistTerminal';
 import FooterSection from './components/FooterSection';
 
 export default function App() {
@@ -25,12 +24,9 @@ export default function App() {
 
         {/* 5. Section 4: Multi-Platform Download Matrix (.exe, curl, iwr) */}
         <DownloadAndInstallSection />
-
-        {/* 6. Section 5: Early Access CRT Phosphor Waitlist Terminal */}
-        <RetroWaitlistTerminal />
       </main>
 
-      {/* 7. Footer */}
+      {/* 6. Footer */}
       <FooterSection />
     </div>
   );

@@ -38,9 +38,6 @@ export default function FooterSection() {
             <a href="#download" className="hover:text-[#00E599] transition-colors">
               Install
             </a>
-            <a href="#waitlist" className="hover:text-[#00E599] transition-colors">
-              Waitlist
-            </a>
           </div>
 
           {/* GitHub Repo */}
