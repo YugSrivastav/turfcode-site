@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { Copy, Check, Play, Download, Volume2, VolumeX } from 'lucide-react';
-import { theProblemCrisis } from '../data/productFeatures';
+import { Copy, Check, Play, Download, Volume2, VolumeX, ArrowRight, Zap, Shield, GitBranch, Terminal } from 'lucide-react';
+import RotatingWord from './RotatingWord';
 
 export default function HeroSection() {
   const [copied, setCopied] = useState(false);
@@ -23,12 +23,20 @@ export default function HeroSection() {
     if (mobileVideoRef.current) mobileVideoRef.current.muted = nextMuted;
   };
 
+  const rotatingWords = [
+    'Multi-Agent',
+    'Vibe-Coding',
+    'Late-Night',
+    'Agent-Swarm',
+    'Full-Throttle',
+    'Zero-Conflict',
+  ];
+
   return (
-    <section className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28 border-b border-[#193122] bg-[#060A07]">
+    <section className="relative overflow-hidden min-h-[92vh] flex flex-col justify-between border-b border-[#193122] bg-[#060A07]">
       
-      {/* BACKGROUND VIDEO LAYER (Full bleed behind the hero section) */}
+      {/* Background Video Layer */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        {/* Desktop Landscape Video (Laptops & Desktops) */}
         <video
           ref={desktopVideoRef}
           src="/landing-video-desktop.mp4"
@@ -36,10 +44,9 @@ export default function HeroSection() {
           loop
           muted={isMuted}
           playsInline
-          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center opacity-60 filter brightness-90 contrast-115"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center opacity-40 filter brightness-75 contrast-125"
         />
 
-        {/* Mobile Portrait Video (Smartphones) */}
         <video
           ref={mobileVideoRef}
           src="/landing-video-mobile.mp4"
@@ -47,116 +54,133 @@ export default function HeroSection() {
           loop
           muted={isMuted}
           playsInline
-          className="block md:hidden absolute inset-0 w-full h-full object-cover object-center opacity-65 filter brightness-90 contrast-115"
+          className="block md:hidden absolute inset-0 w-full h-full object-cover object-center opacity-45 filter brightness-75 contrast-125"
         />
 
-        {/* Cinematic Dark Turf Overlays to maintain WCAG AAA text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060A07]/80 via-[#060A07]/50 to-[#060A07]/95"></div>
-        <div className="absolute inset-0 bg-pitch-dots opacity-30"></div>
+        {/* Cinematic contrast scrims */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060A07]/90 via-[#060A07]/60 to-[#060A07]"></div>
+        <div className="absolute inset-0 bg-pitch-dots opacity-20"></div>
         <div className="absolute inset-0 bg-turf-radial"></div>
       </div>
 
-      {/* FOREGROUND HERO CONTENT */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-4xl mx-auto space-y-6">
+      {/* Main Hero Stage */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 text-center flex-1 flex flex-col justify-center items-center space-y-8">
+        
+        {/* Hackathon Badge */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101C15]/90 border border-[#193122] text-xs font-mono text-[#D4EC5B] shadow-sm backdrop-blur-md">
+          <span className="w-2 h-2 rounded-full bg-[#A2C304] animate-ping"></span>
+          <span className="font-semibold tracking-wide">Craftora 9-Hour Sprint</span>
+          <span className="text-[#6B7280]">•</span>
+          <span className="text-[#94A3B8]">Team Ace of Spade</span>
+        </div>
+
+        {/* Dynamic GenZ Headline with Rotating Value Word */}
+        <h1 className="font-display font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] text-[#F0FDF4] max-w-4xl">
+          Real-time concurrency for{' '}
+          <span className="block mt-1 sm:mt-2">
+            <RotatingWord words={rotatingWords} interval={2200} />
+          </span>
+          <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#94A3B8] block mt-1">
+            sprints without cooked git merges.
+          </span>
+        </h1>
+
+        {/* Subtitle with Informal Voice */}
+        <p className="text-base sm:text-lg md:text-xl text-[#94A3B8] max-w-2xl mx-auto font-body leading-relaxed">
+          Git was made in 2005 for people who commit twice a day. When 4 of you vibe-code with Claude and Cursor at 250 tokens a second, normal Git just dies. Turfcode intercepts edits with 15s micro-locks so nobody overwrites each other.
+        </p>
+
+        {/* Sleek Command Console Bar */}
+        <div className="w-full max-w-xl space-y-2 pt-2">
+          <div className="flex items-center justify-between p-2 pl-4 rounded-xl bg-[#0B130E]/95 border border-[#193122] shadow-turf-card focus-within:border-[#A2C304] transition-colors backdrop-blur-md">
+            <div className="flex items-center gap-3 overflow-x-auto text-left font-mono text-xs sm:text-sm text-[#D4EC5B] py-1">
+              <span className="text-[#A2C304] select-none font-bold">$</span>
+              <code className="whitespace-nowrap text-[#F0FDF4]">{defaultCommand}</code>
+            </div>
+            <button
+              onClick={copyToClipboard}
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#A2C304] text-xs font-mono font-bold border border-[#193122] transition-colors shrink-0 ml-2"
+              title="Copy installation command"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-4 h-4 text-[#A2C304]" />
+                  <span>COPIED</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-4 h-4 text-[#A2C304]" />
+                  <span>COPY</span>
+                </>
+              )}
+            </button>
+          </div>
+
+          <div className="flex items-center justify-between px-2 text-[11px] font-mono text-[#6B7280]">
+            <span>macOS, Linux, WSL2</span>
+            <a href="#download" className="text-[#A2C304] hover:underline flex items-center gap-1">
+              <span>Windows .exe & PowerShell</span>
+              <ArrowRight className="w-3 h-3" />
+            </a>
+          </div>
+        </div>
+
+        {/* Primary CTAs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 w-full max-w-md">
+          <a
+            href="#simulator"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#A2C304] hover:bg-[#B0D504] text-[#060A07] font-bold text-sm font-mono shadow-turf-glow transition-all hover:-translate-y-0.5"
+          >
+            <Play className="w-4 h-4 fill-current" />
+            <span>Launch TUI Simulator</span>
+          </a>
+          <a
+            href="#download"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#101C15] hover:bg-[#193122] text-[#F0FDF4] font-medium text-sm font-mono border border-[#193122] transition-all hover:-translate-y-0.5"
+          >
+            <Download className="w-4 h-4 text-[#A2C304]" />
+            <span>Get CLI Binary</span>
+          </a>
+        </div>
+
+      </div>
+
+      {/* Sleek Live Telemetry Ticker Strip (Anti-Bento: No Clunky Generic Boxes!) */}
+      <div className="relative z-10 w-full border-t border-[#193122] bg-[#060A07]/90 backdrop-blur-md py-4 px-4">
+        <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
           
-          {/* Hackathon Stage Pitch Pill */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#101C15]/90 border border-[#193122] text-xs font-mono text-[#D4EC5B] shadow-sm backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-[#A2C304] animate-pulse"></span>
-            <span>Craftora 9-Hour Build Sprint • Team Ace of Spade</span>
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#A2C304]"></span>
+            <span className="text-[#6B7280] uppercase tracking-wider text-[10px]">Speed:</span>
+            <span className="text-[#F0FDF4] font-bold">250 tok/s</span>
+            <span className="text-[#6B7280] hidden sm:inline">per active agent</span>
           </div>
 
-          {/* Main Value Headline */}
-          <h1 className="font-display font-bold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] text-[#F0FDF4] drop-shadow-md">
-            Real-Time Concurrency for{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A2C304] via-[#B0D504] to-[#D4EC5B]">
-              Multi-Agent
-            </span>{' '}
-            Engineering
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-[#94A3B8] max-w-2xl mx-auto font-body leading-relaxed drop-shadow-sm">
-            When four developers vibe-code simultaneously with Claude, AGY, and Codex, Git merge collisions ruin the sprint. Turfcode orchestrates JIT micro-locks and semantic AST mergers in real time.
-          </p>
-
-          {/* Quick Copy Install Bar */}
-          <div className="max-w-xl mx-auto pt-2">
-            <div className="flex items-center justify-between p-2 pl-4 rounded-xl bg-[#0B130E]/95 border border-[#193122] shadow-turf-card focus-within:border-[#A2C304] transition-colors backdrop-blur-md">
-              <div className="flex items-center gap-3 overflow-x-auto text-left font-mono text-xs sm:text-sm text-[#D4EC5B] py-1">
-                <span className="text-[#A2C304] select-none">$</span>
-                <code className="whitespace-nowrap">{defaultCommand}</code>
-              </div>
-              <button
-                onClick={copyToClipboard}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#F0FDF4] text-xs font-mono border border-[#193122] transition-colors shrink-0 ml-2"
-                title="Copy installation command"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-4 h-4 text-[#A2C304]" />
-                    <span className="text-[#A2C304]">Copied</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4 text-[#94A3B8]" />
-                    <span>Copy</span>
-                  </>
-                )}
-              </button>
-            </div>
-            <div className="flex items-center justify-center gap-4 text-xs font-mono text-[#D4EC5B]/70 mt-2">
-              <span>Supports macOS (arm/x86)</span>
-              <span>•</span>
-              <span>Linux</span>
-              <span>•</span>
-              <a href="#download" className="text-[#A2C304] hover:underline">Windows .exe & PowerShell</a>
-            </div>
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#A2C304]"></span>
+            <span className="text-[#6B7280] uppercase tracking-wider text-[10px]">Lock Guard:</span>
+            <span className="text-[#F0FDF4] font-bold">15s Auto-TTL</span>
+            <span className="text-[#6B7280] hidden sm:inline">zero starvation</span>
           </div>
 
-          {/* Mobile QR & Action CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <a
-              href="#simulator"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#A2C304] hover:bg-[#B0D504] text-[#060A07] font-semibold text-sm font-mono shadow-turf-glow transition-all hover:-translate-y-0.5"
-            >
-              <Play className="w-4 h-4 fill-current" />
-              Try Mobile TUI Simulator
-            </a>
-            <a
-              href="#download"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#101C15]/90 hover:bg-[#193122] text-[#F0FDF4] font-medium text-sm font-mono border border-[#193122] transition-all hover:-translate-y-0.5 backdrop-blur-sm"
-            >
-              <Download className="w-4 h-4 text-[#A2C304]" />
-              Download CLI & App
-            </a>
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#A2C304]"></span>
+            <span className="text-[#6B7280] uppercase tracking-wider text-[10px]">Peacemaker:</span>
+            <span className="text-[#F0FDF4] font-bold">&lt; 1.4s</span>
+            <span className="text-[#6B7280] hidden sm:inline">AST semantic merge</span>
           </div>
 
-          {/* Key Metrics Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-8 max-w-3xl mx-auto">
-            {theProblemCrisis.stats.map((stat, idx) => (
-              <div
-                key={idx}
-                className="p-4 rounded-xl bg-[#0B130E]/90 border border-[#193122] text-left hover-lift backdrop-blur-md"
-              >
-                <div className="font-display font-bold text-2xl text-[#A2C304]">
-                  {stat.value}
-                </div>
-                <div className="font-mono text-xs font-semibold text-[#F0FDF4] mt-0.5">
-                  {stat.label}
-                </div>
-                <div className="text-[11px] text-[#6B7280] font-body mt-0.5">
-                  {stat.detail}
-                </div>
-              </div>
-            ))}
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#A2C304]"></span>
+            <span className="text-[#6B7280] uppercase tracking-wider text-[10px]">Merge Trauma:</span>
+            <span className="text-[#A2C304] font-bold">0 dropped lines</span>
           </div>
 
         </div>
       </div>
 
       {/* Floating Audio Toggle for Background Video */}
-      <div className="absolute bottom-4 right-4 z-20">
+      <div className="absolute top-20 right-4 z-20">
         <button
           onClick={toggleMute}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0B130E]/80 hover:bg-[#101C15] border border-[#193122] text-[#D4EC5B] text-[11px] font-mono backdrop-blur-md transition-colors shadow-sm"
