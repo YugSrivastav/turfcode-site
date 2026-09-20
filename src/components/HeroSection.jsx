@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Copy, Check, Terminal, Play, QrCode, ArrowDown } from 'lucide-react';
 import { theProblemCrisis } from '../data/productFeatures';
+import LandingVideoShowcase from './LandingVideoShowcase';
 
 export default function HeroSection() {
   const [copied, setCopied] = useState(false);
@@ -90,6 +91,9 @@ export default function HeroSection() {
               Join Hackathon Early Access
             </a>
           </div>
+
+          {/* Landing Video Experience (Responsive Desktop & Mobile Views) */}
+          <LandingVideoShowcase />
 
           {/* Key Metrics Strip */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-8 max-w-3xl mx-auto">
