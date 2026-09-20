@@ -81,16 +81,16 @@ export default function ConcurrencyEngineInteractive() {
   return (
     <div className="relative overflow-hidden rounded-3xl border border-[#193122] bg-[#060A07]">
       
-      {/* Neoclassical Phosphor Dither Artwork Background */}
+      {/* Neoclassical Phosphor Dither Artwork Background - Bold & Visible */}
       <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden">
         <img
           src="/concurrency-engine-bg.png"
           alt="Neoclassical Cyber Dither Background"
-          className="w-full h-full object-cover object-top opacity-35 filter contrast-125 brightness-95 mix-blend-screen"
+          className="w-full h-full object-cover object-center sm:object-right-top opacity-75 sm:opacity-85 filter contrast-110 brightness-105 mix-blend-screen"
         />
-        {/* Soft Vignette Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060A07]/90 via-[#060A07]/75 to-[#060A07]/95"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#060A07]/90 via-transparent to-[#060A07]/90"></div>
+        {/* Subtle Edge Vignettes to Preserve Text Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060A07]/50 via-[#060A07]/20 to-[#060A07]/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#060A07]/75 via-[#060A07]/15 to-[#060A07]/40"></div>
       </div>
 
       <div className="relative z-10 p-6 sm:p-10 lg:p-14 space-y-10">
@@ -160,7 +160,7 @@ export default function ConcurrencyEngineInteractive() {
                   </h4>
                 </div>
 
-                <p className="text-sm sm:text-base text-[#D4EC5B]/90 font-mono bg-[#101C15]/80 border-l-2 border-[#A2C304] p-3 rounded-r-lg leading-relaxed">
+                <p className="text-sm sm:text-base text-[#D4EC5B]/90 font-mono bg-[#101C15]/60 backdrop-blur-sm border-l-2 border-[#A2C304] p-3 rounded-r-lg leading-relaxed">
                   "Ayush tells Claude to rewrite the database model. 2 seconds later, Krishna tells Cursor to add an auth route using that model. In normal Git, whoever saves second just erased 200 lines of code. It’s over."
                 </p>
 
@@ -187,7 +187,7 @@ export default function ConcurrencyEngineInteractive() {
                   </h4>
                 </div>
 
-                <p className="text-sm sm:text-base text-[#D4EC5B]/90 font-mono bg-[#101C15]/80 border-l-2 border-[#A2C304] p-3 rounded-r-lg leading-relaxed">
+                <p className="text-sm sm:text-base text-[#D4EC5B]/90 font-mono bg-[#101C15]/60 backdrop-blur-sm border-l-2 border-[#A2C304] p-3 rounded-r-lg leading-relaxed">
                   "If Ayush is editing auth.ts, what does Krishna's agent do? Sit there burning token budgets while staring at a loading spinner? No way."
                 </p>
 
@@ -214,7 +214,7 @@ export default function ConcurrencyEngineInteractive() {
                   </h4>
                 </div>
 
-                <p className="text-sm sm:text-base text-[#D4EC5B]/90 font-mono bg-[#101C15]/80 border-l-2 border-[#A2C304] p-3 rounded-r-lg leading-relaxed">
+                <p className="text-sm sm:text-base text-[#D4EC5B]/90 font-mono bg-[#101C15]/60 backdrop-blur-sm border-l-2 border-[#A2C304] p-3 rounded-r-lg leading-relaxed">
                   "Git’s diff engine was written 20 years ago. It has zero idea what an import statement is. Two agents add imports to line 4? Git flags a fatal conflict, drops &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD into your code, and breaks your build."
                 </p>
 
@@ -241,7 +241,7 @@ export default function ConcurrencyEngineInteractive() {
                   </h4>
                 </div>
 
-                <p className="text-sm sm:text-base text-[#D4EC5B]/90 font-mono bg-[#101C15]/80 border-l-2 border-[#A2C304] p-3 rounded-r-lg leading-relaxed">
+                <p className="text-sm sm:text-base text-[#D4EC5B]/90 font-mono bg-[#101C15]/60 backdrop-blur-sm border-l-2 border-[#A2C304] p-3 rounded-r-lg leading-relaxed">
                   "Nobody wants a slow Electron dashboard open when they are deep in the terminal zone. You want raw speed, zero latency, and zero distraction."
                 </p>
 
@@ -260,7 +260,7 @@ export default function ConcurrencyEngineInteractive() {
           </div>
 
           {/* Right Column: Clean Interactive Console (No Card-in-Card Nesting!) */}
-          <div className="lg:col-span-6 bg-[#0B130E]/90 border border-[#193122] rounded-2xl p-6 space-y-5 backdrop-blur-md">
+          <div className="lg:col-span-6 bg-[#0B130E]/75 border border-[#193122]/80 rounded-2xl p-6 space-y-5 backdrop-blur-md shadow-2xl">
             
             {/* Interactive Tab 1: Micro-Lock HUD */}
             {activeTab === 'lock' && (
