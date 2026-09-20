@@ -35,23 +35,14 @@ export default function ProductDetailsSection() {
             </div>
           </div>
 
-          {/* Halftone Sports Editorial Visual (Zidane Volley / Pitch Aesthetic) */}
-          <div className="lg:col-span-5 relative group">
-            <div className="relative rounded-2xl overflow-hidden border border-[#193122] bg-[#101C15] shadow-turf-card">
+          {/* Halftone Sports Editorial Visual (Zidane Volley / Pitch Aesthetic - Full Photo) */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="w-full max-w-md rounded-2xl overflow-hidden border border-[#193122] bg-[#0B130E] shadow-turf-card hover:border-[#264A34] transition-all">
               <img
                 src="/pitch-zidane-halftone.png"
-                alt="Zidane Halftone Pitch Editorial"
-                className="w-full h-80 object-cover grayscale contrast-125 brightness-90 group-hover:scale-105 transition-transform duration-500"
+                alt="Zidane Halftone UEFA Champions League Editorial"
+                className="w-full h-auto object-contain block transition-transform duration-300 hover:scale-[1.01]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060A07] via-transparent to-transparent opacity-90"></div>
-              <div className="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-[#0B130E]/90 border border-[#193122] backdrop-blur-sm">
-                <p className="font-mono text-xs text-[#00E599] font-semibold">
-                  "Execution on the pitch."
-                </p>
-                <p className="text-[11px] text-[#94A3B8] mt-0.5">
-                  Turfcode brings tactical discipline to high-speed autonomous agent sprints.
-                </p>
-              </div>
             </div>
           </div>
         </div>
