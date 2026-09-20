@@ -1,0 +1,29 @@
+@import './styles/design-tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  background-color: #060A07;
+  color: #F0FDF4;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar matching dark turf */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #060A07;
+}
+::-webkit-scrollbar-thumb {
+  background: #193122;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00E599;
+}
