@@ -93,33 +93,33 @@ export default function ConcurrencyEngineInteractive() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#060A07]/75 via-[#060A07]/15 to-[#060A07]/40"></div>
       </div>
 
-      <div className="relative z-10 p-6 sm:p-10 lg:p-14 space-y-10">
+      <div className="relative z-10 p-5 sm:p-10 lg:p-14 space-y-8 sm:space-y-10">
 
         {/* Section Header: Bold, Informal, No Corporate Fluff */}
-        <div className="space-y-4 max-w-3xl">
+        <div className="space-y-3 sm:space-y-4 max-w-3xl">
           <div className="inline-flex items-center gap-2 text-xs font-mono text-[#A2C304]">
             <Sparkles className="w-3.5 h-3.5" />
             <span className="uppercase tracking-widest font-bold">HOW IT ACTUALLY SAVES YOUR REPO</span>
           </div>
 
-          <h3 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-[#F0FDF4] tracking-tight leading-[1.08]">
+          <h3 className="font-display font-black text-2xl sm:text-4xl lg:text-6xl text-[#F0FDF4] tracking-tight leading-[1.1] sm:leading-[1.08] break-words">
             How Turfcode survives 8 AI agents vibe-coding at 3 AM.
           </h3>
 
-          <p className="text-base sm:text-lg text-[#94A3B8] font-body leading-relaxed">
+          <p className="text-sm sm:text-lg text-[#94A3B8] font-body leading-relaxed">
             Standard Git expects humans to think for 20 minutes between commits. AI agents dump 250 tokens per second across four terminals. When everyone hits save at once, chaos is the default. Here is how our four subsystems keep your project from blowing up.
           </p>
         </div>
 
-        {/* Anti-Slop Navigation: Sleek Minimalist Pipeline Tabs (NO Chunky Bento Boxes!) */}
-        <div className="border-b border-[#193122]/80 flex flex-wrap items-center gap-1 sm:gap-2">
+        {/* Anti-Slop Navigation: Sleek Minimalist Pipeline Tabs (Smooth Swipe on Mobile) */}
+        <div className="border-b border-[#193122]/80 flex items-center gap-1 sm:gap-2 overflow-x-auto no-scrollbar -mx-2 px-2 sm:mx-0 sm:px-0 pb-px">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`group pb-3 pt-2 px-3 sm:px-4 text-left font-mono transition-all relative flex items-center gap-2 text-xs sm:text-sm ${
+                className={`group pb-3 pt-2 px-2.5 sm:px-4 text-left font-mono transition-all relative flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm shrink-0 whitespace-nowrap ${
                   isActive
                     ? 'text-[#A2C304] font-bold'
                     : 'text-[#94A3B8] hover:text-[#F0FDF4]'
@@ -260,7 +260,7 @@ export default function ConcurrencyEngineInteractive() {
           </div>
 
           {/* Right Column: Clean Interactive Console (No Card-in-Card Nesting!) */}
-          <div className="lg:col-span-6 bg-[#0B130E]/75 border border-[#193122]/80 rounded-2xl p-6 space-y-5 backdrop-blur-md shadow-2xl">
+          <div className="lg:col-span-6 bg-[#0B130E]/75 border border-[#193122]/80 rounded-2xl p-4 sm:p-6 space-y-4 sm:space-y-5 backdrop-blur-md shadow-2xl">
             
             {/* Interactive Tab 1: Micro-Lock HUD */}
             {activeTab === 'lock' && (

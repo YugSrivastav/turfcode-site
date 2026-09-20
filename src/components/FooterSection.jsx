@@ -25,7 +25,7 @@ export default function FooterSection() {
           </div>
 
           {/* Nav Anchors */}
-          <div className="flex items-center gap-6 text-[#94A3B8]">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[#94A3B8]">
             <a href="#" className="hover:text-[#A2C304] transition-colors">
               Top
             </a>

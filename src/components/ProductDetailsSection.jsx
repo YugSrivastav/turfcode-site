@@ -5,23 +5,23 @@ import ConcurrencyEngineInteractive from './ConcurrencyEngineInteractive';
 
 export default function ProductDetailsSection() {
   return (
-    <section id="product" className="py-20 md:py-28 border-b border-[#193122] bg-[#060A07]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+    <section id="product" className="py-14 sm:py-20 md:py-28 border-b border-[#193122] bg-[#060A07]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-24">
 
         {/* Section Header & The Crisis */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101C15] border border-[#193122] text-xs font-mono text-[#A2C304]">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>{theProblemCrisis.badge}</span>
             </div>
-            <h2 className="font-display font-bold text-3xl sm:text-5xl text-[#F0FDF4] tracking-tight leading-tight">
+            <h2 className="font-display font-bold text-2xl sm:text-4xl md:text-5xl text-[#F0FDF4] tracking-tight leading-tight">
               Why 4-Person Vibe Coding Breaks Git
             </h2>
-            <p className="text-base sm:text-lg text-[#94A3B8] font-body leading-relaxed">
+            <p className="text-sm sm:text-lg text-[#94A3B8] font-body leading-relaxed">
               {theProblemCrisis.explanation}
             </p>
-            <div className="p-5 rounded-xl bg-[#0B130E] border-l-4 border-l-[#A2C304] border-y border-r border-[#193122] space-y-2 font-mono text-xs sm:text-sm">
+            <div className="p-4 sm:p-5 rounded-xl bg-[#0B130E] border-l-4 border-l-[#A2C304] border-y border-r border-[#193122] space-y-2 font-mono text-xs sm:text-sm">
               <div className="text-[#A2C304] font-semibold">The Cold Technical Reality:</div>
               <p className="text-[#D4EC5B]/80 leading-relaxed font-body">
                 File locks prevent simultaneous overwrites, but AST drift breaks code silently. If Ayush modifies an auth signature while Yug's agent writes a caller using the old signature, both compile in isolation — but the whole app crashes when merged.
@@ -45,7 +45,7 @@ export default function ProductDetailsSection() {
         <ConcurrencyEngineInteractive />
 
         {/* Team Ace of Spade Roster */}
-        <div className="p-8 rounded-2xl bg-[#0B130E] border border-[#193122] space-y-6">
+        <div className="p-5 sm:p-8 rounded-2xl bg-[#0B130E] border border-[#193122] space-y-5 sm:space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#193122] pb-6">
             <div>
               <h4 className="font-display font-bold text-xl text-[#F0FDF4]">

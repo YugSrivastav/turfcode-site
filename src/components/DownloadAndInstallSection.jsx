@@ -18,18 +18,18 @@ export default function DownloadAndInstallSection() {
   };
 
   return (
-    <section id="download" className="relative overflow-hidden py-24 sm:py-32 border-b border-[#193122] bg-[#060A07]">
+    <section id="download" className="relative overflow-hidden py-16 sm:py-24 md:py-32 border-b border-[#193122] bg-[#060A07]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl space-y-8">
+        <div className="max-w-3xl space-y-6 sm:space-y-8">
           
           {/* Herdr-Inspired Massive Display Headline */}
-          <h2 className="font-display font-bold text-5xl sm:text-7xl lg:text-8xl tracking-tight text-[#F0FDF4] leading-[0.98]">
+          <h2 className="font-display font-bold text-3xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tight text-[#F0FDF4] leading-[1.05] sm:leading-[0.98] break-words">
             Give your agents<br />
             somewhere to play.
           </h2>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-[#94A3B8] font-body max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-lg text-[#94A3B8] font-body max-w-2xl leading-relaxed">
             One command, and git merge collisions are history: the agent CLIs you already run keep coding at 250 tokens per second, but now you never drop the ball on conflicting diffs.
           </p>
 
@@ -37,11 +37,11 @@ export default function DownloadAndInstallSection() {
           <div className="space-y-3 pt-2 max-w-2xl">
             
             {/* Clear Platform Switcher Tabs */}
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <button
                 type="button"
                 onClick={() => setCurrentPlatform('unix')}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all border ${
+                className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all border ${
                   currentPlatform === 'unix'
                     ? 'bg-[#101C15] border-[#A2C304] text-[#A2C304] shadow-turf-glow'
                     : 'bg-[#0B130E] border-[#193122] text-[#94A3B8] hover:text-[#F0FDF4] hover:border-[#264A34]'
@@ -53,7 +53,7 @@ export default function DownloadAndInstallSection() {
               <button
                 type="button"
                 onClick={() => setCurrentPlatform('windows')}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all border ${
+                className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all border ${
                   currentPlatform === 'windows'
                     ? 'bg-[#101C15] border-[#A2C304] text-[#A2C304] shadow-turf-glow'
                     : 'bg-[#0B130E] border-[#193122] text-[#94A3B8] hover:text-[#F0FDF4] hover:border-[#264A34]'
@@ -64,14 +64,14 @@ export default function DownloadAndInstallSection() {
             </div>
 
             {/* Unified Sleek Command Bar */}
-            <div className="flex items-center justify-between p-2 sm:p-2.5 pl-4 sm:pl-5 rounded-lg bg-[#0B130E] border border-[#193122] font-mono text-xs sm:text-sm text-[#D4EC5B] focus-within:border-[#A2C304] transition-colors shadow-turf-card">
-              <div className="flex items-center gap-3 overflow-x-auto text-left py-1">
+            <div className="flex items-center justify-between p-2 sm:p-2.5 pl-3 sm:pl-5 rounded-lg bg-[#0B130E] border border-[#193122] font-mono text-xs sm:text-sm text-[#D4EC5B] focus-within:border-[#A2C304] transition-colors shadow-turf-card">
+              <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto text-left py-1 min-w-0 flex-1">
                 <span className="text-[#A2C304] select-none font-bold shrink-0">{activePrompt}</span>
-                <code className="whitespace-nowrap text-[#F0FDF4] font-medium">{activeCommand}</code>
+                <code className="whitespace-nowrap text-[#F0FDF4] font-medium truncate sm:overflow-visible">{activeCommand}</code>
               </div>
               <button
                 onClick={handleCopy}
-                className="px-4 py-2 rounded bg-[#101C15] hover:bg-[#193122] text-[#A2C304] hover:text-[#B0D504] text-xs font-mono font-bold uppercase tracking-wider border border-[#193122] transition-colors shrink-0 ml-3 flex items-center gap-1.5"
+                className="px-3 sm:px-4 py-2 rounded bg-[#101C15] hover:bg-[#193122] text-[#A2C304] hover:text-[#B0D504] text-xs font-mono font-bold uppercase tracking-wider border border-[#193122] transition-colors shrink-0 ml-2 sm:ml-3 flex items-center gap-1.5"
                 title="Copy install command"
               >
                 {copied ? (
@@ -104,11 +104,11 @@ export default function DownloadAndInstallSection() {
           </div>
 
           {/* Quick-Start Launch Steps */}
-          <div className="pt-10 border-t border-[#193122]/70 max-w-2xl">
+          <div className="pt-8 sm:pt-10 border-t border-[#193122]/70 max-w-2xl">
             <div className="text-[11px] font-mono uppercase tracking-widest text-[#6B7280] mb-3">
               3-Step Hackathon Launch Sequence
             </div>
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono text-[#D4EC5B]">
+            <div className="grid grid-cols-1 sm:flex sm:flex-wrap items-start sm:items-center gap-3 sm:gap-6 text-xs font-mono text-[#D4EC5B]">
               <div className="flex items-center gap-2">
                 <span className="w-5 h-5 rounded-full bg-[#101C15] border border-[#193122] text-[#A2C304] flex items-center justify-center font-bold text-[10px]">
                   1

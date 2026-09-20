@@ -22,6 +22,7 @@ export default function InteractiveTerminalCockpit() {
     { user: 'Krishna', text: 'Updating dashboard colors to Turf pitch chartreuse.', time: '05:16' },
   ]);
   const [chatInput, setChatInput] = useState('');
+  const [mobileCockpitView, setMobileCockpitView] = useState('terminal'); // 'terminal' | 'worktrees'
   const logContainerRef = useRef(null);
 
   // Auto-scroll terminal log to bottom on new output
@@ -150,7 +151,7 @@ export default function InteractiveTerminalCockpit() {
               <Terminal className="w-3.5 h-3.5" />
               <span>Interactive Cockpit Simulator</span>
             </div>
-            <h2 className="font-display font-bold text-3xl sm:text-5xl text-[#F0FDF4] mt-2">
+            <h2 className="font-display font-bold text-2xl sm:text-4xl md:text-5xl text-[#F0FDF4] mt-2">
               Experience the Terminal Cockpit
             </h2>
             <p className="text-sm sm:text-base text-[#94A3B8] max-w-xl font-body mt-1">
@@ -158,31 +159,31 @@ export default function InteractiveTerminalCockpit() {
             </p>
           </div>
 
-          {/* Quick Trigger Touch Buttons (Ideal for mobile QR viewers) */}
-          <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
+          {/* Quick Trigger Touch Buttons (Responsive 2x2 on Mobile, 1-Row on Desktop) */}
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 font-mono text-xs w-full sm:w-auto">
             <button
               onClick={triggerSimulateLock}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#D4EC5B] border border-[#193122] transition-colors"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#D4EC5B] border border-[#193122] transition-colors"
             >
               <Lock className="w-3.5 h-3.5 text-[#A2C304]" />
-              <span>Claim JIT Lock</span>
+              <span className="truncate">Claim JIT Lock</span>
             </button>
             <button
               onClick={triggerSimulateConflict}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#D4EC5B] border border-[#193122] transition-colors"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#D4EC5B] border border-[#193122] transition-colors"
             >
               <GitMerge className="w-3.5 h-3.5 text-[#A2C304]" />
-              <span>Simulate Conflict</span>
+              <span className="truncate">Simulate Conflict</span>
             </button>
             <button
               onClick={triggerCatMascot}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#D4EC5B] border border-[#193122] transition-colors"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#D4EC5B] border border-[#193122] transition-colors"
             >
               <span>🐱 Turf Cat</span>
             </button>
             <button
               onClick={triggerFullDemo}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#A2C304] text-[#060A07] font-semibold hover:bg-[#B0D504] transition-colors"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[#A2C304] text-[#060A07] font-semibold hover:bg-[#B0D504] transition-colors"
             >
               <Play className="w-3.5 h-3.5 fill-current" />
               <span>F5 Stage Demo</span>
@@ -194,20 +195,46 @@ export default function InteractiveTerminalCockpit() {
         <div className="rounded-2xl border border-[#193122] bg-[#060A07] shadow-2xl overflow-hidden flex flex-col h-[520px]">
           
           {/* Top Window Bar */}
-          <div className="h-10 bg-[#0B130E] border-b border-[#193122] px-4 flex items-center justify-between text-xs font-mono select-none">
+          <div className="h-10 bg-[#0B130E] border-b border-[#193122] px-3 sm:px-4 flex items-center justify-between text-xs font-mono select-none">
             <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-red-500/80"></span>
-              <span className="w-3 h-3 rounded-full bg-yellow-500/80"></span>
-              <span className="w-3 h-3 rounded-full bg-[#A2C304]/80"></span>
-              <span className="ml-3 text-[#94A3B8] font-semibold hidden sm:inline">
+              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></span>
+              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></span>
+              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#A2C304]/80"></span>
+              <span className="ml-2 sm:ml-3 text-[#94A3B8] font-semibold hidden sm:inline">
                 turfcode-cockpit — blessed v0.1.81 • room: #pitch
               </span>
             </div>
             
+            {/* Mobile View Switcher (Only visible on small screens) */}
+            <div className="flex md:hidden items-center p-0.5 rounded bg-[#060A07] border border-[#193122]">
+              <button
+                type="button"
+                onClick={() => setMobileCockpitView('terminal')}
+                className={`px-2.5 py-0.5 rounded text-[10px] font-mono transition-colors ${
+                  mobileCockpitView === 'terminal'
+                    ? 'bg-[#A2C304] text-[#060A07] font-bold'
+                    : 'text-[#94A3B8]'
+                }`}
+              >
+                &gt;_ Shell
+              </button>
+              <button
+                type="button"
+                onClick={() => setMobileCockpitView('worktrees')}
+                className={`px-2.5 py-0.5 rounded text-[10px] font-mono transition-colors ${
+                  mobileCockpitView === 'worktrees'
+                    ? 'bg-[#A2C304] text-[#060A07] font-bold'
+                    : 'text-[#94A3B8]'
+                }`}
+              >
+                Trees ({activeLocks.length})
+              </button>
+            </div>
+
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-                className="flex items-center gap-1 text-[#D4EC5B] hover:text-[#A2C304] px-2 py-0.5 rounded border border-[#193122] bg-[#101C15]"
+                className="hidden md:flex items-center gap-1 text-[#D4EC5B] hover:text-[#A2C304] px-2 py-0.5 rounded border border-[#193122] bg-[#101C15]"
                 title="Toggle Sidebar (Ctrl+B)"
               >
                 {sidebarCollapsed ? <ChevronRight className="w-3.5 h-3.5" /> : <ChevronLeft className="w-3.5 h-3.5" />}
@@ -226,10 +253,12 @@ export default function InteractiveTerminalCockpit() {
             {/* PANE 1: Collapsible Sidebar (Herdr-style) */}
             <div
               className={`${
-                sidebarCollapsed ? 'w-12' : 'w-56 sm:w-64'
-              } bg-[#08100A] border-r border-[#193122] transition-all duration-200 flex flex-col p-3 overflow-y-auto shrink-0 select-none`}
+                mobileCockpitView === 'worktrees' ? 'flex w-full' : 'hidden'
+              } md:flex ${
+                sidebarCollapsed ? 'md:w-12' : 'md:w-56 lg:w-64'
+              } bg-[#08100A] md:border-r border-[#193122] transition-all duration-200 flex-col p-3 overflow-y-auto shrink-0 select-none`}
             >
-              {!sidebarCollapsed ? (
+              {!sidebarCollapsed || mobileCockpitView === 'worktrees' ? (
                 <div className="space-y-4 text-xs font-mono">
                   <div>
                     <div className="text-[10px] uppercase text-[#6B7280] font-bold tracking-wider mb-1.5">
@@ -286,10 +315,12 @@ export default function InteractiveTerminalCockpit() {
             </div>
 
             {/* PANE 2: Center Terminal (Shell & Real Logs) */}
-            <div className="flex-1 flex flex-col bg-[#060A07] overflow-hidden">
+            <div className={`${
+              mobileCockpitView === 'terminal' ? 'flex' : 'hidden'
+            } md:flex flex-1 flex-col bg-[#060A07] overflow-hidden`}>
               <div
                 ref={logContainerRef}
-                className="flex-1 p-4 overflow-y-auto font-mono text-xs sm:text-sm space-y-2 crt-scanlines"
+                className="flex-1 p-3 sm:p-4 overflow-y-auto font-mono text-[11px] sm:text-xs md:text-sm space-y-1.5 sm:space-y-2 crt-scanlines"
               >
                 {terminalLogs.map((log, index) => {
                   let color = 'text-[#F0FDF4]';
@@ -302,7 +333,7 @@ export default function InteractiveTerminalCockpit() {
                   if (log.type === 'prompt') color = 'text-[#6B7280] italic';
 
                   return (
-                    <div key={index} className={`leading-relaxed ${color} break-all`}>
+                    <div key={index} className={`leading-relaxed ${color} break-words whitespace-pre-wrap`}>
                       {log.text}
                     </div>
                   );
@@ -312,7 +343,7 @@ export default function InteractiveTerminalCockpit() {
               {/* Interactive Terminal Input */}
               <form
                 onSubmit={handleCommandSubmit}
-                className="h-12 bg-[#0B130E] border-t border-[#193122] px-3 flex items-center gap-2 shrink-0"
+                className="h-11 sm:h-12 bg-[#0B130E] border-t border-[#193122] px-3 flex items-center gap-2 shrink-0"
               >
                 <span className="font-mono text-xs text-[#A2C304] font-bold select-none">$</span>
                 <input
@@ -320,11 +351,11 @@ export default function InteractiveTerminalCockpit() {
                   value={commandInput}
                   onChange={(e) => setCommandInput(e.target.value)}
                   placeholder="type 'status', 'lock', 'peacemaker', or 'demo'..."
-                  className="flex-1 bg-transparent border-none outline-none font-mono text-xs sm:text-sm text-[#F0FDF4] placeholder-[#6B7280]"
+                  className="flex-1 min-w-0 bg-transparent border-none outline-none font-mono text-xs sm:text-sm text-[#F0FDF4] placeholder-[#6B7280]"
                 />
                 <button
                   type="submit"
-                  className="px-2.5 py-1 rounded bg-[#101C15] hover:bg-[#193122] text-[#A2C304] font-mono text-xs border border-[#193122]"
+                  className="px-2.5 py-1 rounded bg-[#101C15] hover:bg-[#193122] text-[#A2C304] font-mono text-xs border border-[#193122] shrink-0"
                 >
                   Run
                 </button>

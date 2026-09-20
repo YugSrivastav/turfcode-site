@@ -27,7 +27,7 @@ export default function RotatingWord({ words, interval = 2000 }) {
       >
         {words[index]}
       </span>
-      <span className="inline-block w-1.5 h-8 md:h-12 bg-[#A2C304] ml-1.5 align-middle animate-pulse"></span>
+      <span className="inline-block w-1 sm:w-1.5 h-6 sm:h-8 md:h-12 bg-[#A2C304] ml-1 sm:ml-1.5 align-middle animate-pulse"></span>
     </span>
   );
 }
