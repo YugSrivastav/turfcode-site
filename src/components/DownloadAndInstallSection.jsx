@@ -1,173 +1,135 @@
 import React, { useState } from 'react';
-import { Download, Copy, Check, Terminal, Apple, Command, ArrowRight, ShieldCheck } from 'lucide-react';
-import { downloadPlatforms, quickStartCommands } from '../data/downloadCommands';
+import { Copy, Check, ArrowRight, Download, Terminal } from 'lucide-react';
 
 export default function DownloadAndInstallSection() {
-  const [copiedId, setCopiedId] = useState(null);
+  const [copied, setCopied] = useState(false);
+  const [currentPlatform, setCurrentPlatform] = useState('unix');
 
-  const handleCopy = (id, text) => {
-    navigator.clipboard.writeText(text);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 2000);
+  const unixCommand = 'curl -fsSL https://turfcode.dev/install.sh | bash';
+  const windowsCommand = 'iwr -useb https://turfcode.dev/install.ps1 | iex';
+
+  const activeCommand = currentPlatform === 'windows' ? windowsCommand : unixCommand;
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(activeCommand);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <section id="download" className="py-20 md:py-28 border-b border-[#193122] bg-[#060A07]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        
-        {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101C15] border border-[#193122] text-xs font-mono text-[#00E599]">
-            <Download className="w-3.5 h-3.5" />
-            <span>Distribution Matrix</span>
-          </div>
-          <h2 className="font-display font-bold text-3xl sm:text-5xl text-[#F0FDF4] tracking-tight">
-            Install Turfcode on Any Machine
+    <section id="download" className="relative overflow-hidden py-24 sm:py-32 border-b border-[#193122] bg-[#060A07]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-3xl space-y-8">
+          
+          {/* Herdr-Inspired Massive Display Headline */}
+          <h2 className="font-display font-bold text-5xl sm:text-7xl lg:text-8xl tracking-tight text-[#F0FDF4] leading-[0.98]">
+            Give your agents<br />
+            somewhere to play.
           </h2>
-          <p className="text-base text-[#94A3B8] font-body">
-            One-line installers for macOS, Linux, and Windows PowerShell, plus standalone Windows executables.
+
+          {/* Subtitle */}
+          <p className="text-base sm:text-lg text-[#94A3B8] font-body max-w-2xl leading-relaxed">
+            One command, and git merge collisions are history — the agent CLIs you already run keep coding at 250 tokens per second, but now you never drop the ball on conflicting diffs.
           </p>
-        </div>
 
-        {/* 4-Platform Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {downloadPlatforms.map((platform) => (
-            <div
-              key={platform.id}
-              className="p-6 sm:p-8 rounded-2xl bg-[#0B130E] border border-[#193122] hover:border-[#264A34] transition-all flex flex-col justify-between space-y-6 hover-lift"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-[#101C15] border border-[#193122] flex items-center justify-center text-[#00E599]">
-                      <Terminal className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h3 className="font-display font-bold text-lg text-[#F0FDF4]">
-                        {platform.name}
-                      </h3>
-                      <p className="text-xs text-[#86EFAC]/70 font-mono">
-                        {platform.subtitle}
-                      </p>
-                    </div>
-                  </div>
-                  <span className="font-mono text-[11px] px-2.5 py-1 rounded bg-[#101C15] text-[#00E599] border border-[#193122]">
-                    {platform.badge}
-                  </span>
-                </div>
-
-                <div className="text-xs font-mono text-[#6B7280]">
-                  Target shell: <span className="text-[#F0FDF4]">{platform.shell}</span>
-                </div>
+          {/* Unified Sleek Command Bar (Herdr style) */}
+          <div className="space-y-3 pt-2">
+            <div className="flex items-center justify-between p-2 sm:p-2.5 pl-4 sm:pl-5 rounded-lg bg-[#0B130E] border border-[#193122] font-mono text-xs sm:text-sm text-[#86EFAC] focus-within:border-[#00E599] transition-colors shadow-turf-card max-w-2xl">
+              <div className="flex items-center gap-3 overflow-x-auto text-left">
+                <span className="text-[#00E599] select-none font-bold">$</span>
+                <code className="whitespace-nowrap text-[#F0FDF4] font-medium">{activeCommand}</code>
               </div>
-
-              {/* Command or Download Button */}
-              {platform.command ? (
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-[#101C15] border border-[#193122] font-mono text-xs text-[#86EFAC] overflow-x-auto">
-                    <code className="whitespace-nowrap">{platform.command}</code>
-                    <button
-                      onClick={() => handleCopy(platform.id, platform.command)}
-                      className="ml-3 p-1.5 rounded bg-[#193122] hover:bg-[#264A34] text-[#F0FDF4] transition-colors shrink-0"
-                      title="Copy command"
-                    >
-                      {copiedId === platform.id ? (
-                        <Check className="w-4 h-4 text-[#00E599]" />
-                      ) : (
-                        <Copy className="w-4 h-4 text-[#94A3B8]" />
-                      )}
-                    </button>
-                  </div>
-                  <div className="text-[11px] text-[#6B7280] font-mono">
-                    Auto-configures bin path & background daemon.
-                  </div>
-                </div>
-              ) : (
-                <div className="space-y-2">
-                  <a
-                    href={platform.downloadUrl}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#00E599] hover:bg-[#22C55E] text-[#060A07] font-semibold text-sm font-mono shadow-turf-glow transition-all"
-                  >
-                    <Download className="w-4 h-4" />
-                    Download {platform.fileName} (Direct)
-                  </a>
-                  <div className="text-[11px] text-[#6B7280] font-mono text-center">
-                    Signed standalone binary • 64-bit Windows
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Quick-Start 3-Step Guide & Retro Terminal Companion Mascot */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* 3-Step Sequence (8 cols on lg) */}
-          <div className="lg:col-span-8 p-6 sm:p-8 rounded-2xl bg-[#0B130E] border border-[#193122] space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#193122] pb-4">
-              <h4 className="font-display font-bold text-lg text-[#F0FDF4]">
-                3-Step Hackathon Launch Sequence
-              </h4>
-              <span className="font-mono text-xs text-[#00E599]">
-                Zero config needed
-              </span>
+              <button
+                onClick={handleCopy}
+                className="px-4 py-2 rounded bg-[#101C15] hover:bg-[#193122] text-[#00E599] hover:text-[#22C55E] text-xs font-mono font-bold uppercase tracking-wider border border-[#193122] transition-colors shrink-0 ml-3"
+                title="Copy install command"
+              >
+                {copied ? 'COPIED' : 'COPY'}
+              </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {quickStartCommands.map((item) => (
-                <div
-                  key={item.step}
-                  className="p-4 rounded-xl bg-[#101C15] border border-[#193122] space-y-2"
+            {/* Platform links and standalone exe download */}
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-mono text-[#6B7280]">
+              <span>
+                Windows PowerShell:{' '}
+                <button
+                  type="button"
+                  onClick={() => setCurrentPlatform(currentPlatform === 'windows' ? 'unix' : 'windows')}
+                  className="text-[#86EFAC] hover:text-[#00E599] underline underline-offset-2 transition-colors font-semibold"
                 >
-                  <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-full bg-[#00E599] text-[#060A07] font-bold font-mono text-xs flex items-center justify-center">
-                      {item.step}
-                    </span>
-                    <span className="text-xs font-semibold text-[#F0FDF4] font-body">
-                      {item.label}
-                    </span>
-                  </div>
-                  <div className="p-2 rounded bg-[#060A07] border border-[#193122] font-mono text-xs text-[#00E599] select-all">
-                    $ {item.cmd}
-                  </div>
-                </div>
-              ))}
+                  {currentPlatform === 'windows' ? 'switch to macOS / Linux' : 'iwr -useb https://turfcode.dev/install.ps1 | iex'}
+                </button>
+              </span>
+              <span>—</span>
+              <a
+                href="https://github.com/YugSrivastav/turfcode-site/releases/latest/download/turfcode-setup.exe"
+                className="text-[#00E599] hover:text-[#22C55E] hover:underline flex items-center gap-1 transition-colors"
+              >
+                <span>Standalone Windows .exe</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+              <span>·</span>
+              <button
+                type="button"
+                onClick={() => setCurrentPlatform('unix')}
+                className={`hover:text-[#00E599] transition-colors ${currentPlatform === 'unix' ? 'text-[#86EFAC]' : 'text-[#6B7280]'}`}
+              >
+                macOS & Linux (Universal)
+              </button>
             </div>
           </div>
 
-          {/* Retro CRT Phosphor Cat Companion Mascot (4 cols on lg) */}
-          <div className="lg:col-span-4 p-6 rounded-2xl border-2 border-dashed border-[#00E599]/40 bg-[#08120B] shadow-turf-glow crt-scanlines flex flex-col justify-between space-y-4">
-            <div className="flex items-center justify-between border-b border-[#193122] pb-3 text-xs font-mono">
-              <span className="text-[#00E599] font-bold uppercase tracking-wider">
-                TURF COMPANION
-              </span>
-              <span className="text-[#86EFAC]/70 text-[10px]">
-                PORT 7873
-              </span>
+          {/* Quick-Start Launch Steps */}
+          <div className="pt-10 border-t border-[#193122]/70 max-w-2xl">
+            <div className="text-[11px] font-mono uppercase tracking-widest text-[#6B7280] mb-3">
+              3-Step Hackathon Launch Sequence
             </div>
-
-            <div className="flex flex-col items-center justify-center py-2">
-              <pre className="font-mono text-[#00E599] text-xs leading-tight select-none">
-{`      /\\_/\\
-     ( o.o )   HELLO /
-      > ^ <
-     /|   |\\
-    (_|   |_)`}
-              </pre>
-            </div>
-
-            <div className="text-center font-mono text-xs space-y-1">
-              <div className="text-[#F0FDF4] font-semibold">
-                No waitlists. Zero gating.
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono text-[#86EFAC]">
+              <div className="flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-[#101C15] border border-[#193122] text-[#00E599] flex items-center justify-center font-bold text-[10px]">
+                  1
+                </span>
+                <span>$ turf create</span>
               </div>
-              <p className="text-[11px] text-[#86EFAC]/70 font-body">
-                Run the curl command, pair with your team, and start vibe-coding with agents.
-              </p>
+              <span className="text-[#193122] hidden sm:inline">•</span>
+              <div className="flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-[#101C15] border border-[#193122] text-[#00E599] flex items-center justify-center font-bold text-[10px]">
+                  2
+                </span>
+                <span>$ turf join &lt;room&gt;</span>
+              </div>
+              <span className="text-[#193122] hidden sm:inline">•</span>
+              <div className="flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-[#101C15] border border-[#193122] text-[#00E599] flex items-center justify-center font-bold text-[10px]">
+                  3
+                </span>
+                <span>$ turf start</span>
+              </div>
             </div>
           </div>
+
+        </div>
+      </div>
+
+      {/* Right Side Watermark Graphic (Herdr Mascot Silhouette style) */}
+      <div className="hidden lg:flex absolute right-[-40px] bottom-[-20px] top-0 w-1/2 items-end justify-end pointer-events-none select-none z-0 overflow-hidden pr-8 pb-4">
+        {/* Giant Subtle ASCII Cat Watermark */}
+        <div className="opacity-15 transform translate-x-8 translate-y-4">
+          <pre className="font-mono text-[#00E599] text-xs leading-[11px] scale-[1.8] origin-bottom-right">
+{`
+                  /\\_/\\
+                 ( o.o )   HELLO /
+                  > ^ <
+                 /|   |\\
+                (_|   |_)
+`}
+          </pre>
         </div>
 
+        {/* Ambient Turf Green Radial Glow behind mascot */}
+        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] bg-[#00E599]/10 rounded-full blur-3xl pointer-events-none"></div>
       </div>
+
     </section>
   );
 }
