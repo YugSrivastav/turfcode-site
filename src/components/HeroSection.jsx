@@ -36,7 +36,7 @@ export default function HeroSection() {
           loop
           muted={isMuted}
           playsInline
-          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center opacity-30 filter brightness-75 contrast-125"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center opacity-60 filter brightness-90 contrast-115"
         />
 
         {/* Mobile Portrait Video (Smartphones) */}
@@ -47,12 +47,12 @@ export default function HeroSection() {
           loop
           muted={isMuted}
           playsInline
-          className="block md:hidden absolute inset-0 w-full h-full object-cover object-center opacity-35 filter brightness-75 contrast-125"
+          className="block md:hidden absolute inset-0 w-full h-full object-cover object-center opacity-65 filter brightness-90 contrast-115"
         />
 
         {/* Cinematic Dark Turf Overlays to maintain WCAG AAA text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060A07]/90 via-[#060A07]/75 to-[#060A07]"></div>
-        <div className="absolute inset-0 bg-pitch-dots opacity-40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#060A07]/80 via-[#060A07]/50 to-[#060A07]/95"></div>
+        <div className="absolute inset-0 bg-pitch-dots opacity-30"></div>
         <div className="absolute inset-0 bg-turf-radial"></div>
       </div>
 
