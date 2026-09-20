@@ -75,12 +75,12 @@ export default function HeroSection() {
         </div>
 
         {/* Dynamic GenZ Headline with Rotating Value Word */}
-        <h1 className="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[1.1] sm:leading-[1.05] text-[#F0FDF4] max-w-4xl px-2 break-words">
+        <h1 className="font-display font-extrabold text-[28px] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[1.12] sm:leading-[1.05] text-[#F0FDF4] max-w-4xl px-2 break-words">
           Real-time concurrency for{' '}
           <span className="block mt-1 sm:mt-2">
             <RotatingWord words={rotatingWords} interval={2200} />
           </span>
-          <span className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#94A3B8] block mt-1 sm:mt-2">
+          <span className="text-[20px] sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#94A3B8] block mt-1.5 sm:mt-2">
             sprints without cooked git merges.
           </span>
         </h1>
@@ -93,9 +93,9 @@ export default function HeroSection() {
         {/* Sleek Command Console Bar */}
         <div className="w-full max-w-xl space-y-2 pt-1 sm:pt-2">
           <div className="flex items-center justify-between p-2 pl-3 sm:pl-4 rounded-xl bg-[#0B130E]/95 border border-[#193122] shadow-turf-card focus-within:border-[#A2C304] transition-colors backdrop-blur-md">
-            <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto text-left font-mono text-xs sm:text-sm text-[#D4EC5B] py-1 min-w-0 flex-1">
+            <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto text-left font-mono text-xs sm:text-sm text-[#D4EC5B] py-1 min-w-0 flex-1 no-scrollbar">
               <span className="text-[#A2C304] select-none font-bold shrink-0">$</span>
-              <code className="whitespace-nowrap text-[#F0FDF4] truncate sm:overflow-visible">{defaultCommand}</code>
+              <code className="whitespace-nowrap text-[#F0FDF4]">{defaultCommand}</code>
             </div>
             <button
               onClick={copyToClipboard}
