@@ -1,13 +1,7 @@
 import React from 'react';
-import { Lock, GitBranch, Cpu, Terminal, ShieldCheck, Zap } from 'lucide-react';
-import { corePillars, teamRoster, theProblemCrisis } from '../data/productFeatures';
-
-const iconMap = {
-  '01': Lock,
-  '02': GitBranch,
-  '03': Cpu,
-  '04': Terminal,
-};
+import { ShieldCheck } from 'lucide-react';
+import { teamRoster, theProblemCrisis } from '../data/productFeatures';
+import ConcurrencyEngineInteractive from './ConcurrencyEngineInteractive';
 
 export default function ProductDetailsSection() {
   return (
@@ -47,54 +41,8 @@ export default function ProductDetailsSection() {
           </div>
         </div>
 
-        {/* The 4 Architectural Pillars */}
-        <div className="space-y-8">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <h3 className="font-display font-bold text-2xl sm:text-4xl text-[#F0FDF4]">
-              The Concurrency Engine Architecture
-            </h3>
-            <p className="text-sm sm:text-base text-[#94A3B8]">
-              Four interlocking systems designed to maintain zero developer stall.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {corePillars.map((pillar) => {
-              const Icon = iconMap[pillar.number] || Zap;
-              return (
-                <div
-                  key={pillar.number}
-                  className="p-6 sm:p-8 rounded-2xl bg-[#0B130E] border border-[#193122] hover:border-[#264A34] transition-all hover-lift space-y-4 relative overflow-hidden group"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-[#101C15] border border-[#193122] flex items-center justify-center text-[#00E599] group-hover:bg-[#00E599] group-hover:text-[#060A07] transition-colors">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="font-mono text-xs px-2.5 py-1 rounded bg-[#101C15] text-[#86EFAC] border border-[#193122]">
-                      {pillar.metric}
-                    </span>
-                  </div>
-
-                  <div className="space-y-1">
-                    <div className="font-mono text-[11px] uppercase tracking-wider text-[#00E599]">
-                      {pillar.tag}
-                    </div>
-                    <h4 className="font-display font-bold text-xl text-[#F0FDF4]">
-                      {pillar.title}
-                    </h4>
-                    <p className="text-xs font-mono text-[#86EFAC]/70">
-                      {pillar.subtitle}
-                    </p>
-                  </div>
-
-                  <p className="text-sm text-[#94A3B8] font-body leading-relaxed">
-                    {pillar.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        {/* The Interactive Concurrency Engine Architecture Deep-Dive */}
+        <ConcurrencyEngineInteractive />
 
         {/* Team Ace of Spade Roster */}
         <div className="p-8 rounded-2xl bg-[#0B130E] border border-[#193122] space-y-6">
