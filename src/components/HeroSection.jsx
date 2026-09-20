@@ -75,12 +75,13 @@ export default function HeroSection() {
         </div>
 
         {/* Dynamic GenZ Headline with Rotating Value Word */}
-        <h1 className="font-display font-extrabold text-[28px] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[1.12] sm:leading-[1.05] text-[#F0FDF4] max-w-4xl px-2 break-words">
-          Real-time concurrency for{' '}
-          <span className="block mt-1 sm:mt-2">
+        <h1 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[1.15] sm:leading-[1.05] text-[#F0FDF4] max-w-4xl px-2">
+          <span className="block">Real-time concurrency</span>
+          <span className="block text-lg xs:text-xl sm:text-3xl md:text-4xl text-[#94A3B8] font-normal my-0.5 sm:my-1">for</span>
+          <span className="block">
             <RotatingWord words={rotatingWords} interval={2200} />
           </span>
-          <span className="text-[20px] sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#94A3B8] block mt-1.5 sm:mt-2">
+          <span className="text-base xs:text-lg sm:text-2xl md:text-4xl lg:text-5xl font-bold text-[#94A3B8] block mt-1.5 sm:mt-2">
             sprints without cooked git merges.
           </span>
         </h1>
