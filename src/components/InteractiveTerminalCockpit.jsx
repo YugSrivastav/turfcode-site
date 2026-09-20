@@ -19,7 +19,7 @@ export default function InteractiveTerminalCockpit() {
   const [teamChat, setTeamChat] = useState([
     { user: 'Yug', text: 'Starting auth & routes refactor.', time: '05:14' },
     { user: 'Ayush', text: 'Locks claimed on server/auth.js.', time: '05:15' },
-    { user: 'Krishna', text: 'Updating dashboard colors to Turf emerald.', time: '05:16' },
+    { user: 'Krishna', text: 'Updating dashboard colors to Turf pitch chartreuse.', time: '05:16' },
   ]);
   const [chatInput, setChatInput] = useState('');
   const logContainerRef = useRef(null);
@@ -146,7 +146,7 @@ export default function InteractiveTerminalCockpit() {
         {/* Header & Mode Explanation */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101C15] border border-[#193122] text-xs font-mono text-[#00E599]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101C15] border border-[#193122] text-xs font-mono text-[#A2C304]">
               <Terminal className="w-3.5 h-3.5" />
               <span>Interactive Cockpit Simulator</span>
             </div>
@@ -162,27 +162,27 @@ export default function InteractiveTerminalCockpit() {
           <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
             <button
               onClick={triggerSimulateLock}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#86EFAC] border border-[#193122] transition-colors"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#D4EC5B] border border-[#193122] transition-colors"
             >
-              <Lock className="w-3.5 h-3.5 text-[#00E599]" />
+              <Lock className="w-3.5 h-3.5 text-[#A2C304]" />
               <span>Claim JIT Lock</span>
             </button>
             <button
               onClick={triggerSimulateConflict}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#86EFAC] border border-[#193122] transition-colors"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#D4EC5B] border border-[#193122] transition-colors"
             >
-              <GitMerge className="w-3.5 h-3.5 text-[#00E599]" />
+              <GitMerge className="w-3.5 h-3.5 text-[#A2C304]" />
               <span>Simulate Conflict</span>
             </button>
             <button
               onClick={triggerCatMascot}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#86EFAC] border border-[#193122] transition-colors"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#D4EC5B] border border-[#193122] transition-colors"
             >
               <span>🐱 Turf Cat</span>
             </button>
             <button
               onClick={triggerFullDemo}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#00E599] text-[#060A07] font-semibold hover:bg-[#22C55E] transition-colors"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#A2C304] text-[#060A07] font-semibold hover:bg-[#B0D504] transition-colors"
             >
               <Play className="w-3.5 h-3.5 fill-current" />
               <span>F5 Stage Demo</span>
@@ -198,7 +198,7 @@ export default function InteractiveTerminalCockpit() {
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-red-500/80"></span>
               <span className="w-3 h-3 rounded-full bg-yellow-500/80"></span>
-              <span className="w-3 h-3 rounded-full bg-[#00E599]/80"></span>
+              <span className="w-3 h-3 rounded-full bg-[#A2C304]/80"></span>
               <span className="ml-3 text-[#94A3B8] font-semibold hidden sm:inline">
                 turfcode-cockpit — blessed v0.1.81 • room: #7873
               </span>
@@ -207,14 +207,14 @@ export default function InteractiveTerminalCockpit() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-                className="flex items-center gap-1 text-[#86EFAC] hover:text-[#00E599] px-2 py-0.5 rounded border border-[#193122] bg-[#101C15]"
+                className="flex items-center gap-1 text-[#D4EC5B] hover:text-[#A2C304] px-2 py-0.5 rounded border border-[#193122] bg-[#101C15]"
                 title="Toggle Sidebar (Ctrl+B)"
               >
                 {sidebarCollapsed ? <ChevronRight className="w-3.5 h-3.5" /> : <ChevronLeft className="w-3.5 h-3.5" />}
                 <span className="text-[10px]">Ctrl+B</span>
               </button>
-              <span className="text-[11px] text-[#00E599] font-semibold flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-[#00E599] animate-pulse"></span>
+              <span className="text-[11px] text-[#A2C304] font-semibold flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full bg-[#A2C304] animate-pulse"></span>
                 LIVE
               </span>
             </div>
@@ -236,9 +236,9 @@ export default function InteractiveTerminalCockpit() {
                       Worktrees (4 Active)
                     </div>
                     <ul className="space-y-1 text-[#94A3B8]">
-                      <li className="flex items-center justify-between text-[#00E599]">
+                      <li className="flex items-center justify-between text-[#A2C304]">
                         <span>• yug/concurrency</span>
-                        <span className="text-[10px] text-[#86EFAC]">main</span>
+                        <span className="text-[10px] text-[#D4EC5B]">main</span>
                       </li>
                       <li className="flex items-center justify-between">
                         <span>• ayush/peacemaker</span>
@@ -258,7 +258,7 @@ export default function InteractiveTerminalCockpit() {
                   <div>
                     <div className="text-[10px] uppercase text-[#6B7280] font-bold tracking-wider mb-1.5 flex items-center justify-between">
                       <span>JIT Locks (15s)</span>
-                      <span className="text-[#00E599]">{activeLocks.length}</span>
+                      <span className="text-[#A2C304]">{activeLocks.length}</span>
                     </div>
                     {activeLocks.length === 0 ? (
                       <div className="text-[11px] text-[#6B7280] italic">No active locks.</div>
@@ -267,9 +267,9 @@ export default function InteractiveTerminalCockpit() {
                         {activeLocks.map((lock, idx) => (
                           <div key={idx} className="p-2 rounded bg-[#101C15] border border-[#193122]">
                             <div className="text-[11px] font-semibold text-[#F0FDF4] truncate">{lock.file}</div>
-                            <div className="flex items-center justify-between text-[10px] text-[#86EFAC] mt-0.5">
+                            <div className="flex items-center justify-between text-[10px] text-[#D4EC5B] mt-0.5">
                               <span className="truncate">{lock.owner}</span>
-                              <span className="text-[#00E599] font-bold font-mono">{lock.ttl}s</span>
+                              <span className="text-[#A2C304] font-bold font-mono">{lock.ttl}s</span>
                             </div>
                           </div>
                         ))}
@@ -278,9 +278,9 @@ export default function InteractiveTerminalCockpit() {
                   </div>
                 </div>
               ) : (
-                <div className="flex flex-col items-center py-2 space-y-4 text-[#86EFAC]">
+                <div className="flex flex-col items-center py-2 space-y-4 text-[#D4EC5B]">
                   <Lock className="w-4 h-4" />
-                  <span className="text-[10px] font-mono font-bold text-[#00E599]">{activeLocks.length}</span>
+                  <span className="text-[10px] font-mono font-bold text-[#A2C304]">{activeLocks.length}</span>
                 </div>
               )}
             </div>
@@ -293,11 +293,11 @@ export default function InteractiveTerminalCockpit() {
               >
                 {terminalLogs.map((log, index) => {
                   let color = 'text-[#F0FDF4]';
-                  if (log.type === 'system') color = 'text-[#00E599] font-bold';
-                  if (log.type === 'shell') color = 'text-[#86EFAC] font-semibold';
+                  if (log.type === 'system') color = 'text-[#A2C304] font-bold';
+                  if (log.type === 'shell') color = 'text-[#D4EC5B] font-semibold';
                   if (log.type === 'lock') color = 'text-yellow-400 font-medium';
                   if (log.type === 'warn') color = 'text-amber-400 font-semibold';
-                  if (log.type === 'success') color = 'text-[#00E599] font-bold';
+                  if (log.type === 'success') color = 'text-[#A2C304] font-bold';
                   if (log.type === 'info') color = 'text-cyan-400';
                   if (log.type === 'prompt') color = 'text-[#6B7280] italic';
 
@@ -314,7 +314,7 @@ export default function InteractiveTerminalCockpit() {
                 onSubmit={handleCommandSubmit}
                 className="h-12 bg-[#0B130E] border-t border-[#193122] px-3 flex items-center gap-2 shrink-0"
               >
-                <span className="font-mono text-xs text-[#00E599] font-bold select-none">$</span>
+                <span className="font-mono text-xs text-[#A2C304] font-bold select-none">$</span>
                 <input
                   type="text"
                   value={commandInput}
@@ -324,7 +324,7 @@ export default function InteractiveTerminalCockpit() {
                 />
                 <button
                   type="submit"
-                  className="px-2.5 py-1 rounded bg-[#101C15] hover:bg-[#193122] text-[#00E599] font-mono text-xs border border-[#193122]"
+                  className="px-2.5 py-1 rounded bg-[#101C15] hover:bg-[#193122] text-[#A2C304] font-mono text-xs border border-[#193122]"
                 >
                   Run
                 </button>
@@ -333,9 +333,9 @@ export default function InteractiveTerminalCockpit() {
 
             {/* PANE 3: Right Team Chat & Intent (Collapsible on mobile) */}
             <div className="hidden lg:flex w-64 bg-[#08100A] border-l border-[#193122] flex-col overflow-hidden shrink-0">
-              <div className="p-2.5 bg-[#0B130E] border-b border-[#193122] font-mono text-xs font-semibold text-[#86EFAC] flex items-center justify-between">
+              <div className="p-2.5 bg-[#0B130E] border-b border-[#193122] font-mono text-xs font-semibold text-[#D4EC5B] flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-[#00E599]" />
+                  <Users className="w-3.5 h-3.5 text-[#A2C304]" />
                   Team Chat
                 </span>
                 <span className="text-[10px] text-[#6B7280]">4 online</span>
@@ -345,7 +345,7 @@ export default function InteractiveTerminalCockpit() {
                 {teamChat.map((msg, idx) => (
                   <div key={idx} className="p-2 rounded bg-[#101C15] border border-[#193122]">
                     <div className="flex items-center justify-between text-[10px]">
-                      <span className="font-bold text-[#00E599]">{msg.user}</span>
+                      <span className="font-bold text-[#A2C304]">{msg.user}</span>
                       <span className="text-[#6B7280]">{msg.time}</span>
                     </div>
                     <p className="text-[#F0FDF4] text-[11px] mt-1 font-body">{msg.text}</p>
@@ -361,7 +361,7 @@ export default function InteractiveTerminalCockpit() {
                   placeholder="Chat with team..."
                   className="flex-1 bg-[#101C15] border border-[#193122] rounded px-2 py-1 text-xs text-[#F0FDF4] outline-none font-mono"
                 />
-                <button type="submit" className="p-1.5 rounded bg-[#00E599] text-[#060A07]">
+                <button type="submit" className="p-1.5 rounded bg-[#A2C304] text-[#060A07]">
                   <Send className="w-3.5 h-3.5" />
                 </button>
               </form>

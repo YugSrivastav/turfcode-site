@@ -18,7 +18,7 @@ export default function FooterSection() {
               <div className="font-display font-bold text-sm text-[#F0FDF4]">
                 TURFCODE
               </div>
-              <div className="text-[11px] text-[#86EFAC]/70">
+              <div className="text-[11px] text-[#D4EC5B]/70">
                 Multi-Agent Concurrency on the Pitch
               </div>
             </div>
@@ -26,16 +26,16 @@ export default function FooterSection() {
 
           {/* Nav Anchors */}
           <div className="flex items-center gap-6 text-[#94A3B8]">
-            <a href="#" className="hover:text-[#00E599] transition-colors">
+            <a href="#" className="hover:text-[#A2C304] transition-colors">
               Top
             </a>
-            <a href="#product" className="hover:text-[#00E599] transition-colors">
+            <a href="#product" className="hover:text-[#A2C304] transition-colors">
               Architecture
             </a>
-            <a href="#simulator" className="hover:text-[#00E599] transition-colors">
+            <a href="#simulator" className="hover:text-[#A2C304] transition-colors">
               TUI Simulator
             </a>
-            <a href="#download" className="hover:text-[#00E599] transition-colors">
+            <a href="#download" className="hover:text-[#A2C304] transition-colors">
               Install
             </a>
           </div>
@@ -46,7 +46,7 @@ export default function FooterSection() {
               href="https://github.com/YugSrivastav/turfcode-site"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#101C15] border border-[#193122] text-[#86EFAC] hover:text-[#00E599] hover:border-[#00E599]/40 transition-colors"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#101C15] border border-[#193122] text-[#D4EC5B] hover:text-[#A2C304] hover:border-[#A2C304]/40 transition-colors"
             >
               <Github className="w-4 h-4" />
               <span>YugSrivastav/turfcode-site</span>

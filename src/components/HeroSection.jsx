@@ -61,17 +61,17 @@ export default function HeroSection() {
         <div className="text-center max-w-4xl mx-auto space-y-6">
           
           {/* Hackathon Stage Pitch Pill */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#101C15]/90 border border-[#193122] text-xs font-mono text-[#86EFAC] shadow-sm backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-[#00E599] animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#101C15]/90 border border-[#193122] text-xs font-mono text-[#D4EC5B] shadow-sm backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-[#A2C304] animate-pulse"></span>
             <span>Craftora 9-Hour Build Sprint • Team Ace of Spade</span>
             <span className="text-[#6B7280]">|</span>
-            <span className="text-[#00E599] font-semibold">Port 7873</span>
+            <span className="text-[#A2C304] font-semibold">Port 7873</span>
           </div>
 
           {/* Main Value Headline */}
           <h1 className="font-display font-bold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] text-[#F0FDF4] drop-shadow-md">
             Real-Time Concurrency for{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] via-[#22C55E] to-[#86EFAC]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A2C304] via-[#B0D504] to-[#D4EC5B]">
               Multi-Agent
             </span>{' '}
             Engineering
@@ -84,9 +84,9 @@ export default function HeroSection() {
 
           {/* Quick Copy Install Bar */}
           <div className="max-w-xl mx-auto pt-2">
-            <div className="flex items-center justify-between p-2 pl-4 rounded-xl bg-[#0B130E]/95 border border-[#193122] shadow-turf-card focus-within:border-[#00E599] transition-colors backdrop-blur-md">
-              <div className="flex items-center gap-3 overflow-x-auto text-left font-mono text-xs sm:text-sm text-[#86EFAC] py-1">
-                <span className="text-[#00E599] select-none">$</span>
+            <div className="flex items-center justify-between p-2 pl-4 rounded-xl bg-[#0B130E]/95 border border-[#193122] shadow-turf-card focus-within:border-[#A2C304] transition-colors backdrop-blur-md">
+              <div className="flex items-center gap-3 overflow-x-auto text-left font-mono text-xs sm:text-sm text-[#D4EC5B] py-1">
+                <span className="text-[#A2C304] select-none">$</span>
                 <code className="whitespace-nowrap">{defaultCommand}</code>
               </div>
               <button
@@ -96,8 +96,8 @@ export default function HeroSection() {
               >
                 {copied ? (
                   <>
-                    <Check className="w-4 h-4 text-[#00E599]" />
-                    <span className="text-[#00E599]">Copied</span>
+                    <Check className="w-4 h-4 text-[#A2C304]" />
+                    <span className="text-[#A2C304]">Copied</span>
                   </>
                 ) : (
                   <>
@@ -107,12 +107,12 @@ export default function HeroSection() {
                 )}
               </button>
             </div>
-            <div className="flex items-center justify-center gap-4 text-xs font-mono text-[#86EFAC]/70 mt-2">
+            <div className="flex items-center justify-center gap-4 text-xs font-mono text-[#D4EC5B]/70 mt-2">
               <span>Supports macOS (arm/x86)</span>
               <span>•</span>
               <span>Linux</span>
               <span>•</span>
-              <a href="#download" className="text-[#00E599] hover:underline">Windows .exe & PowerShell</a>
+              <a href="#download" className="text-[#A2C304] hover:underline">Windows .exe & PowerShell</a>
             </div>
           </div>
 
@@ -120,7 +120,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <a
               href="#simulator"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#00E599] hover:bg-[#22C55E] text-[#060A07] font-semibold text-sm font-mono shadow-turf-glow transition-all hover:-translate-y-0.5"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#A2C304] hover:bg-[#B0D504] text-[#060A07] font-semibold text-sm font-mono shadow-turf-glow transition-all hover:-translate-y-0.5"
             >
               <Play className="w-4 h-4 fill-current" />
               Try Mobile TUI Simulator
@@ -129,7 +129,7 @@ export default function HeroSection() {
               href="#download"
               className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#101C15]/90 hover:bg-[#193122] text-[#F0FDF4] font-medium text-sm font-mono border border-[#193122] transition-all hover:-translate-y-0.5 backdrop-blur-sm"
             >
-              <Download className="w-4 h-4 text-[#00E599]" />
+              <Download className="w-4 h-4 text-[#A2C304]" />
               Download CLI & App
             </a>
           </div>
@@ -141,7 +141,7 @@ export default function HeroSection() {
                 key={idx}
                 className="p-4 rounded-xl bg-[#0B130E]/90 border border-[#193122] text-left hover-lift backdrop-blur-md"
               >
-                <div className="font-display font-bold text-2xl text-[#00E599]">
+                <div className="font-display font-bold text-2xl text-[#A2C304]">
                   {stat.value}
                 </div>
                 <div className="font-mono text-xs font-semibold text-[#F0FDF4] mt-0.5">
@@ -161,10 +161,10 @@ export default function HeroSection() {
       <div className="absolute bottom-4 right-4 z-20">
         <button
           onClick={toggleMute}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0B130E]/80 hover:bg-[#101C15] border border-[#193122] text-[#86EFAC] text-[11px] font-mono backdrop-blur-md transition-colors shadow-sm"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0B130E]/80 hover:bg-[#101C15] border border-[#193122] text-[#D4EC5B] text-[11px] font-mono backdrop-blur-md transition-colors shadow-sm"
           title={isMuted ? 'Unmute background video' : 'Mute background video'}
         >
-          {isMuted ? <VolumeX className="w-3.5 h-3.5 text-[#6B7280]" /> : <Volume2 className="w-3.5 h-3.5 text-[#00E599]" />}
+          {isMuted ? <VolumeX className="w-3.5 h-3.5 text-[#6B7280]" /> : <Volume2 className="w-3.5 h-3.5 text-[#A2C304]" />}
           <span>{isMuted ? 'Audio Off' : 'Audio On'}</span>
         </button>
       </div>

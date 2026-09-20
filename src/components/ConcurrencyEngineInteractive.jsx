@@ -124,7 +124,7 @@ export default function ConcurrencyEngineInteractive() {
       <div className="relative z-10 space-y-10">
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-[#193122]">
         <div className="space-y-3 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101C15] border border-[#193122] text-xs font-mono text-[#00E599]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101C15] border border-[#193122] text-xs font-mono text-[#A2C304]">
             <Sparkles className="w-3.5 h-3.5" />
             <span>HOW IT ACTUALLY WORKS UNDER THE HOOD</span>
           </div>
@@ -137,8 +137,8 @@ export default function ConcurrencyEngineInteractive() {
         </div>
 
         {/* Live Status indicator badge */}
-        <div className="shrink-0 font-mono text-xs px-4 py-2.5 rounded-xl bg-[#0B130E] border border-[#193122] text-[#86EFAC] flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#00E599] animate-pulse"></span>
+        <div className="shrink-0 font-mono text-xs px-4 py-2.5 rounded-xl bg-[#0B130E] border border-[#193122] text-[#D4EC5B] flex items-center gap-3">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#A2C304] animate-pulse"></span>
           <span>Engine Status: Active (Port 7873)</span>
         </div>
       </div>
@@ -154,35 +154,35 @@ export default function ConcurrencyEngineInteractive() {
               onClick={() => setActiveTab(sys.id)}
               className={`p-4 sm:p-5 rounded-xl text-left transition-all border relative flex flex-col justify-between space-y-3 ${
                 isActive
-                  ? 'bg-[#101C15] border-[#00E599] shadow-turf-glow ring-1 ring-[#00E599]/50'
+                  ? 'bg-[#101C15] border-[#A2C304] shadow-turf-glow ring-1 ring-[#A2C304]/50'
                   : 'bg-[#0B130E] border-[#193122] hover:border-[#264A34] hover:bg-[#0E1711]'
               }`}
             >
               <div className="flex items-center justify-between w-full">
                 <div className={`w-9 h-9 rounded-lg flex items-center justify-center font-mono text-xs font-bold transition-colors ${
-                  isActive ? 'bg-[#00E599] text-[#060A07]' : 'bg-[#16271D] text-[#86EFAC]'
+                  isActive ? 'bg-[#A2C304] text-[#060A07]' : 'bg-[#16271D] text-[#D4EC5B]'
                 }`}>
                   <Icon className="w-4 h-4" />
                 </div>
-                <span className="font-mono text-[11px] text-[#86EFAC]/70">
+                <span className="font-mono text-[11px] text-[#D4EC5B]/70">
                   {sys.number}
                 </span>
               </div>
 
               <div>
-                <div className="font-mono text-[10px] uppercase tracking-wider text-[#00E599]">
+                <div className="font-mono text-[10px] uppercase tracking-wider text-[#A2C304]">
                   {sys.tag}
                 </div>
                 <div className="font-display font-bold text-sm sm:text-base text-[#F0FDF4] mt-0.5">
                   {sys.title}
                 </div>
-                <div className="font-mono text-xs text-[#86EFAC] mt-1 font-semibold">
+                <div className="font-mono text-xs text-[#D4EC5B] mt-1 font-semibold">
                   {sys.metric}
                 </div>
               </div>
 
               {isActive && (
-                <div className="absolute -bottom-px left-6 right-6 h-0.5 bg-[#00E599]"></div>
+                <div className="absolute -bottom-px left-6 right-6 h-0.5 bg-[#A2C304]"></div>
               )}
             </button>
           );
@@ -198,13 +198,13 @@ export default function ConcurrencyEngineInteractive() {
             {/* Story & Technical Breakdown */}
             <div className="lg:col-span-6 p-6 sm:p-8 space-y-6">
               <div className="space-y-2">
-                <span className="font-mono text-xs text-[#00E599] uppercase tracking-wider">
+                <span className="font-mono text-xs text-[#A2C304] uppercase tracking-wider">
                   Subsystem 01 / Mutual Exclusion
                 </span>
                 <h4 className="font-display font-bold text-2xl text-[#F0FDF4]">
                   Just-In-Time 15s Micro-Locks
                 </h4>
-                <p className="text-xs font-mono text-[#86EFAC]">
+                <p className="text-xs font-mono text-[#D4EC5B]">
                   Anti-starvation FIFO queue over local Unix domain socket
                 </p>
               </div>
@@ -234,7 +234,7 @@ export default function ConcurrencyEngineInteractive() {
               <div className="grid grid-cols-3 gap-3 pt-2">
                 <div className="p-3 rounded-lg bg-[#060A07] border border-[#193122] text-center">
                   <div className="font-mono text-[10px] text-[#6B7280] uppercase">TTL Expiry</div>
-                  <div className="font-mono font-bold text-sm text-[#00E599] mt-0.5">15.00s</div>
+                  <div className="font-mono font-bold text-sm text-[#A2C304] mt-0.5">15.00s</div>
                 </div>
                 <div className="p-3 rounded-lg bg-[#060A07] border border-[#193122] text-center">
                   <div className="font-mono text-[10px] text-[#6B7280] uppercase">Scheduling</div>
@@ -242,7 +242,7 @@ export default function ConcurrencyEngineInteractive() {
                 </div>
                 <div className="p-3 rounded-lg bg-[#060A07] border border-[#193122] text-center">
                   <div className="font-mono text-[10px] text-[#6B7280] uppercase">Transport</div>
-                  <div className="font-mono font-bold text-sm text-[#86EFAC] mt-0.5">Unix IPC</div>
+                  <div className="font-mono font-bold text-sm text-[#D4EC5B] mt-0.5">Unix IPC</div>
                 </div>
               </div>
             </div>
@@ -252,7 +252,7 @@ export default function ConcurrencyEngineInteractive() {
               <div className="space-y-5">
                 <div className="flex items-center justify-between border-b border-[#193122] pb-3">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#00E599]"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#A2C304]"></span>
                     <span className="font-mono text-xs font-bold text-[#F0FDF4]">
                       LIVE LOCK SIMULATOR
                     </span>
@@ -269,7 +269,7 @@ export default function ConcurrencyEngineInteractive() {
                       <div className={`p-2.5 rounded-lg border ${
                         isLocked 
                           ? 'bg-[#EF4444]/10 border-[#EF4444]/40 text-[#F87171]' 
-                          : 'bg-[#00E599]/10 border-[#00E599]/40 text-[#00E599]'
+                          : 'bg-[#A2C304]/10 border-[#A2C304]/40 text-[#A2C304]'
                       }`}>
                         <Lock className="w-5 h-5" />
                       </div>
@@ -277,13 +277,13 @@ export default function ConcurrencyEngineInteractive() {
                         <div className="text-xs font-mono font-bold text-[#F0FDF4]">
                           {isLocked ? 'ACTIVE LOCK HELD' : 'FILE UNLOCKED (IDLE)'}
                         </div>
-                        <div className="text-[11px] font-mono text-[#86EFAC]/70">
+                        <div className="text-[11px] font-mono text-[#D4EC5B]/70">
                           {isLocked ? 'Owner: Agent-Yug (Claude 3.5 Sonnet)' : 'Available for immediate claims'}
                         </div>
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="font-mono font-bold text-lg text-[#00E599]">
+                      <div className="font-mono font-bold text-lg text-[#A2C304]">
                         {lockTime.toFixed(1)}s
                       </div>
                       <div className="text-[10px] font-mono text-[#6B7280]">Watchdog TTL</div>
@@ -293,7 +293,7 @@ export default function ConcurrencyEngineInteractive() {
                   {/* Animated Progress Bar */}
                   <div className="w-full bg-[#16271D] h-2 rounded-full overflow-hidden">
                     <div 
-                      className="bg-gradient-to-r from-[#00E599] to-[#22C55E] h-full transition-all duration-1000 ease-linear"
+                      className="bg-gradient-to-r from-[#A2C304] to-[#B0D504] h-full transition-all duration-1000 ease-linear"
                       style={{ width: `${(lockTime / 15) * 100}%` }}
                     ></div>
                   </div>
@@ -302,7 +302,7 @@ export default function ConcurrencyEngineInteractive() {
                 {/* Fair FIFO Queue Box */}
                 <div className="p-4 rounded-xl bg-[#0B130E] border border-[#193122] space-y-3">
                   <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="text-[#86EFAC] font-semibold">
+                    <span className="text-[#D4EC5B] font-semibold">
                       FIFO Queue ({queue.length} agents waiting)
                     </span>
                     <span className="text-[#6B7280]">Anti-Starvation Guard: ON</span>
@@ -317,12 +317,12 @@ export default function ConcurrencyEngineInteractive() {
                       {queue.map((item, idx) => (
                         <div key={idx} className="flex items-center justify-between px-3 py-2 rounded bg-[#101C15] border border-[#193122] text-xs font-mono">
                           <div className="flex items-center gap-2">
-                            <span className="w-4 h-4 rounded-full bg-[#193122] text-[#00E599] flex items-center justify-center text-[10px] font-bold">
+                            <span className="w-4 h-4 rounded-full bg-[#193122] text-[#A2C304] flex items-center justify-center text-[10px] font-bold">
                               {idx + 1}
                             </span>
                             <span className="text-[#F0FDF4]">{item}</span>
                           </div>
-                          <span className="text-[11px] text-[#86EFAC]/60">queued</span>
+                          <span className="text-[11px] text-[#D4EC5B]/60">queued</span>
                         </div>
                       ))}
                     </div>
@@ -334,20 +334,20 @@ export default function ConcurrencyEngineInteractive() {
               <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#193122]">
                 <button
                   onClick={handleSimulateCollision}
-                  className="px-4 py-2 rounded-lg bg-[#00E599] hover:bg-[#22C55E] text-[#060A07] font-mono text-xs font-bold transition-all flex items-center gap-2"
+                  className="px-4 py-2 rounded-lg bg-[#A2C304] hover:bg-[#B0D504] text-[#060A07] font-mono text-xs font-bold transition-all flex items-center gap-2"
                 >
                   <Play className="w-3.5 h-3.5 fill-current" />
                   <span>Simulate Concurrent Edit</span>
                 </button>
                 <button
                   onClick={handleResetLock}
-                  className="px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#86EFAC] font-mono text-xs border border-[#193122] transition-colors flex items-center gap-1.5"
+                  className="px-3 py-2 rounded-lg bg-[#101C15] hover:bg-[#193122] text-[#D4EC5B] font-mono text-xs border border-[#193122] transition-colors flex items-center gap-1.5"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   <span>Reset State</span>
                 </button>
                 {collisionSimulated && (
-                  <span className="text-xs font-mono text-[#00E599] animate-pulse">
+                  <span className="text-xs font-mono text-[#A2C304] animate-pulse">
                     Conflict queued cleanly! Zero developer stall.
                   </span>
                 )}
@@ -361,13 +361,13 @@ export default function ConcurrencyEngineInteractive() {
           <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-[#193122]">
             <div className="lg:col-span-6 p-6 sm:p-8 space-y-6">
               <div className="space-y-2">
-                <span className="font-mono text-xs text-[#00E599] uppercase tracking-wider">
+                <span className="font-mono text-xs text-[#A2C304] uppercase tracking-wider">
                   Subsystem 02 / Zero Agent Stall
                 </span>
                 <h4 className="font-display font-bold text-2xl text-[#F0FDF4]">
                   Speculative Worktree Sandboxes
                 </h4>
-                <p className="text-xs font-mono text-[#86EFAC]">
+                <p className="text-xs font-mono text-[#D4EC5B]">
                   Ephemeral git worktrees created in less than 50 milliseconds
                 </p>
               </div>
@@ -384,7 +384,7 @@ export default function ConcurrencyEngineInteractive() {
 
               <div className="space-y-3 font-body text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
                 <p>
-                  Turfcode never lets an AI agent idle. When a file lock is held, Turfcode immediately executes a lightweight Git worktree clone under <code className="text-[#86EFAC] bg-[#101C15] px-1.5 py-0.5 rounded border border-[#193122]">.turf/worktrees/&lt;agent&gt;</code>.
+                  Turfcode never lets an AI agent idle. When a file lock is held, Turfcode immediately executes a lightweight Git worktree clone under <code className="text-[#D4EC5B] bg-[#101C15] px-1.5 py-0.5 rounded border border-[#193122]">.turf/worktrees/&lt;agent&gt;</code>.
                 </p>
                 <p>
                   The agent writes speculatively into this isolated sandbox without touching your working directory. The moment the lock clears, Turfcode auto-rebases and merges the speculative changes back into the trunk.
@@ -394,7 +394,7 @@ export default function ConcurrencyEngineInteractive() {
               <div className="grid grid-cols-3 gap-3 pt-2">
                 <div className="p-3 rounded-lg bg-[#060A07] border border-[#193122] text-center">
                   <div className="font-mono text-[10px] text-[#6B7280] uppercase">Fork Speed</div>
-                  <div className="font-mono font-bold text-sm text-[#00E599] mt-0.5">&lt; 50ms</div>
+                  <div className="font-mono font-bold text-sm text-[#A2C304] mt-0.5">&lt; 50ms</div>
                 </div>
                 <div className="p-3 rounded-lg bg-[#060A07] border border-[#193122] text-center">
                   <div className="font-mono text-[10px] text-[#6B7280] uppercase">Storage Cost</div>
@@ -402,7 +402,7 @@ export default function ConcurrencyEngineInteractive() {
                 </div>
                 <div className="p-3 rounded-lg bg-[#060A07] border border-[#193122] text-center">
                   <div className="font-mono text-[10px] text-[#6B7280] uppercase">Rebase Mode</div>
-                  <div className="font-mono font-bold text-sm text-[#86EFAC] mt-0.5">Autonomous</div>
+                  <div className="font-mono font-bold text-sm text-[#D4EC5B] mt-0.5">Autonomous</div>
                 </div>
               </div>
             </div>
@@ -412,12 +412,12 @@ export default function ConcurrencyEngineInteractive() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between border-b border-[#193122] pb-3">
                   <div className="flex items-center gap-2">
-                    <GitBranch className="w-4 h-4 text-[#00E599]" />
+                    <GitBranch className="w-4 h-4 text-[#A2C304]" />
                     <span className="font-mono text-xs font-bold text-[#F0FDF4]">
                       WORKTREE SANDBOX TOPOLOGY
                     </span>
                   </div>
-                  <span className="font-mono text-[11px] text-[#86EFAC]">
+                  <span className="font-mono text-[11px] text-[#D4EC5B]">
                     Branch isolation active
                   </span>
                 </div>
@@ -425,7 +425,7 @@ export default function ConcurrencyEngineInteractive() {
                 {/* Visual File Tree of Git Worktrees */}
                 <div className="p-4 rounded-xl bg-[#0B130E] border border-[#193122] font-mono text-xs space-y-3">
                   <div className="flex items-center gap-2 text-[#F0FDF4] font-bold">
-                    <span className="text-[#00E599]">●</span>
+                    <span className="text-[#A2C304]">●</span>
                     <span>/repo (Main Working Tree - Locked)</span>
                   </div>
                   
@@ -435,27 +435,27 @@ export default function ConcurrencyEngineInteractive() {
                       <span className="text-[#F87171] text-[11px]">locked by Yug</span>
                     </div>
 
-                    <div className="pt-2 text-[11px] uppercase tracking-wider text-[#00E599] font-semibold">
+                    <div className="pt-2 text-[11px] uppercase tracking-wider text-[#A2C304] font-semibold">
                       └─ .turf/worktrees (Zero-Delay Speculative Sandboxes)
                     </div>
 
                     <div className="pl-4 space-y-1.5 border-l border-[#193122]">
                       <div className="p-2 rounded bg-[#060A07] border border-[#193122] flex items-center justify-between">
                         <div>
-                          <div className="text-[#86EFAC] font-medium">agent-ayush-worktree/</div>
+                          <div className="text-[#D4EC5B] font-medium">agent-ayush-worktree/</div>
                           <div className="text-[10px] text-[#6B7280]">Writing: webhook verification (+32 lines)</div>
                         </div>
-                        <span className="px-2 py-0.5 rounded bg-[#00E599]/10 text-[#00E599] text-[10px] border border-[#00E599]/30">
+                        <span className="px-2 py-0.5 rounded bg-[#A2C304]/10 text-[#A2C304] text-[10px] border border-[#A2C304]/30">
                           speculating
                         </span>
                       </div>
 
                       <div className="p-2 rounded bg-[#060A07] border border-[#193122] flex items-center justify-between">
                         <div>
-                          <div className="text-[#86EFAC] font-medium">agent-krishna-worktree/</div>
+                          <div className="text-[#D4EC5B] font-medium">agent-krishna-worktree/</div>
                           <div className="text-[10px] text-[#6B7280]">Writing: stripe payload formatter (+54 lines)</div>
                         </div>
-                        <span className="px-2 py-0.5 rounded bg-[#00E599]/10 text-[#00E599] text-[10px] border border-[#00E599]/30">
+                        <span className="px-2 py-0.5 rounded bg-[#A2C304]/10 text-[#A2C304] text-[10px] border border-[#A2C304]/30">
                           speculating
                         </span>
                       </div>
@@ -463,8 +463,8 @@ export default function ConcurrencyEngineInteractive() {
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-[#101C15] border border-[#193122] text-xs font-mono text-[#86EFAC]/90 flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#00E599] shrink-0" />
+                <div className="p-3.5 rounded-xl bg-[#101C15] border border-[#193122] text-xs font-mono text-[#D4EC5B]/90 flex items-center gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-[#A2C304] shrink-0" />
                   <span>When main lock clears: both worktrees rebase cleanly without human Git intervention.</span>
                 </div>
               </div>
@@ -481,13 +481,13 @@ export default function ConcurrencyEngineInteractive() {
           <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-[#193122]">
             <div className="lg:col-span-6 p-6 sm:p-8 space-y-6">
               <div className="space-y-2">
-                <span className="font-mono text-xs text-[#00E599] uppercase tracking-wider">
+                <span className="font-mono text-xs text-[#A2C304] uppercase tracking-wider">
                   Subsystem 03 / Semantic Resolution
                 </span>
                 <h4 className="font-display font-bold text-2xl text-[#F0FDF4]">
                   Claude 3.5 Sonnet AST Peacemaker
                 </h4>
-                <p className="text-xs font-mono text-[#86EFAC]">
+                <p className="text-xs font-mono text-[#D4EC5B]">
                   Syntax-tree reconciliation instead of destructive line conflicts
                 </p>
               </div>
@@ -514,7 +514,7 @@ export default function ConcurrencyEngineInteractive() {
               <div className="grid grid-cols-3 gap-3 pt-2">
                 <div className="p-3 rounded-lg bg-[#060A07] border border-[#193122] text-center">
                   <div className="font-mono text-[10px] text-[#6B7280] uppercase">Resolution Latency</div>
-                  <div className="font-mono font-bold text-sm text-[#00E599] mt-0.5">&lt; 3.2s</div>
+                  <div className="font-mono font-bold text-sm text-[#A2C304] mt-0.5">&lt; 3.2s</div>
                 </div>
                 <div className="p-3 rounded-lg bg-[#060A07] border border-[#193122] text-center">
                   <div className="font-mono text-[10px] text-[#6B7280] uppercase">Syntax Guarantee</div>
@@ -522,7 +522,7 @@ export default function ConcurrencyEngineInteractive() {
                 </div>
                 <div className="p-3 rounded-lg bg-[#060A07] border border-[#193122] text-center">
                   <div className="font-mono text-[10px] text-[#6B7280] uppercase">Fallback Safety</div>
-                  <div className="font-mono font-bold text-sm text-[#86EFAC] mt-0.5">Zero-Loss Patch</div>
+                  <div className="font-mono font-bold text-sm text-[#D4EC5B] mt-0.5">Zero-Loss Patch</div>
                 </div>
               </div>
             </div>
@@ -553,7 +553,7 @@ export default function ConcurrencyEngineInteractive() {
                       onClick={() => setDiffView('turfcode')}
                       className={`px-3 py-1 rounded transition-colors ${
                         diffView === 'turfcode'
-                          ? 'bg-[#00E599]/20 text-[#00E599] font-bold'
+                          ? 'bg-[#A2C304]/20 text-[#A2C304] font-bold'
                           : 'text-[#6B7280] hover:text-[#94A3B8]'
                       }`}
                     >
@@ -581,28 +581,28 @@ export default function ConcurrencyEngineInteractive() {
                     </div>
                   </div>
                 ) : (
-                  <div className="p-4 rounded-xl bg-[#0B130E] border border-[#00E599]/50 font-mono text-xs space-y-1 overflow-x-auto shadow-turf-glow">
-                    <div className="text-[#00E599] pb-2 text-[11px] flex items-center justify-between">
+                  <div className="p-4 rounded-xl bg-[#0B130E] border border-[#A2C304]/50 font-mono text-xs space-y-1 overflow-x-auto shadow-turf-glow">
+                    <div className="text-[#A2C304] pb-2 text-[11px] flex items-center justify-between">
                       <span>// ✅ Semantic AST Synthesis (Validated in 1.4s)</span>
-                      <span className="text-[#86EFAC]/70">Syntax Valid: 100%</span>
+                      <span className="text-[#D4EC5B]/70">Syntax Valid: 100%</span>
                     </div>
-                    <div className="text-[#86EFAC] font-semibold">
+                    <div className="text-[#D4EC5B] font-semibold">
                       import &#123; createSession, verifyJWT, refreshToken &#125; from './auth';
                     </div>
                     <div className="text-[#F0FDF4] pt-1">
                       export const handler = async (req, res) =&gt; &#123;
                     </div>
-                    <div className="text-[#86EFAC] pl-4">
+                    <div className="text-[#D4EC5B] pl-4">
                       const session = await createSession(req);
                     </div>
-                    <div className="text-[#86EFAC] pl-4">
+                    <div className="text-[#D4EC5B] pl-4">
                       const verified = await verifyJWT(session.token);
                     </div>
-                    <div className="text-[#86EFAC] pl-4">
+                    <div className="text-[#D4EC5B] pl-4">
                       return res.json(&#123; session, token: refreshToken(verified) &#125;);
                     </div>
                     <div className="text-[#F0FDF4]">&#125;;</div>
-                    <div className="text-[#00E599] text-[11px] pt-3 flex items-center gap-1.5 border-t border-[#193122] mt-2">
+                    <div className="text-[#A2C304] text-[11px] pt-3 flex items-center gap-1.5 border-t border-[#193122] mt-2">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       <span>Both features merged cleanly without syntax collisions or lost code.</span>
                     </div>
@@ -614,7 +614,7 @@ export default function ConcurrencyEngineInteractive() {
                 <span>Engine: AST Parser + Claude 3.5 Sonnet API</span>
                 <button
                   onClick={() => setDiffView(diffView === 'git' ? 'turfcode' : 'git')}
-                  className="text-[#00E599] hover:underline"
+                  className="text-[#A2C304] hover:underline"
                 >
                   Click to switch comparison
                 </button>
@@ -628,13 +628,13 @@ export default function ConcurrencyEngineInteractive() {
           <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-[#193122]">
             <div className="lg:col-span-6 p-6 sm:p-8 space-y-6">
               <div className="space-y-2">
-                <span className="font-mono text-xs text-[#00E599] uppercase tracking-wider">
+                <span className="font-mono text-xs text-[#A2C304] uppercase tracking-wider">
                   Subsystem 04 / Developer Experience
                 </span>
                 <h4 className="font-display font-bold text-2xl text-[#F0FDF4]">
                   Persistent 3-Pane Cockpit TUI
                 </h4>
-                <p className="text-xs font-mono text-[#86EFAC]">
+                <p className="text-xs font-mono text-[#D4EC5B]">
                   Keyboard-first Blessed terminal running on localhost:7873
                 </p>
               </div>
@@ -651,7 +651,7 @@ export default function ConcurrencyEngineInteractive() {
 
               <div className="space-y-3 font-body text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
                 <p>
-                  Press <kbd className="px-2 py-0.5 rounded bg-[#16271D] border border-[#193122] font-mono text-[#00E599] text-xs">Ctrl+B</kbd> anytime to collapse the telemetry sidebar and reclaim 100% of your terminal width for pure coding.
+                  Press <kbd className="px-2 py-0.5 rounded bg-[#16271D] border border-[#193122] font-mono text-[#A2C304] text-xs">Ctrl+B</kbd> anytime to collapse the telemetry sidebar and reclaim 100% of your terminal width for pure coding.
                 </p>
                 <p>
                   Live lock monitors on the left show which files teammates are touching in real time. The center pane gives you an authentic, zero-overhead shell, while the right pane keeps team chat right beside your cursor.
@@ -661,7 +661,7 @@ export default function ConcurrencyEngineInteractive() {
               <div className="grid grid-cols-3 gap-3 pt-2">
                 <div className="p-3 rounded-lg bg-[#060A07] border border-[#193122] text-center">
                   <div className="font-mono text-[10px] text-[#6B7280] uppercase">Shortcut</div>
-                  <div className="font-mono font-bold text-sm text-[#00E599] mt-0.5">Ctrl+B Toggle</div>
+                  <div className="font-mono font-bold text-sm text-[#A2C304] mt-0.5">Ctrl+B Toggle</div>
                 </div>
                 <div className="p-3 rounded-lg bg-[#060A07] border border-[#193122] text-center">
                   <div className="font-mono text-[10px] text-[#6B7280] uppercase">Renderer</div>
@@ -669,7 +669,7 @@ export default function ConcurrencyEngineInteractive() {
                 </div>
                 <div className="p-3 rounded-lg bg-[#060A07] border border-[#193122] text-center">
                   <div className="font-mono text-[10px] text-[#6B7280] uppercase">Telemetry</div>
-                  <div className="font-mono font-bold text-sm text-[#86EFAC] mt-0.5">WebSocket IPC</div>
+                  <div className="font-mono font-bold text-sm text-[#D4EC5B] mt-0.5">WebSocket IPC</div>
                 </div>
               </div>
             </div>
@@ -679,14 +679,14 @@ export default function ConcurrencyEngineInteractive() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between border-b border-[#193122] pb-3">
                   <div className="flex items-center gap-2">
-                    <Terminal className="w-4 h-4 text-[#00E599]" />
+                    <Terminal className="w-4 h-4 text-[#A2C304]" />
                     <span className="font-mono text-xs font-bold text-[#F0FDF4]">
                       BLESSED TUI COCKPIT PREVIEW
                     </span>
                   </div>
                   <button
                     onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-                    className="px-2.5 py-1 rounded bg-[#101C15] hover:bg-[#193122] text-[#00E599] border border-[#193122] font-mono text-[11px] flex items-center gap-1.5 transition-colors"
+                    className="px-2.5 py-1 rounded bg-[#101C15] hover:bg-[#193122] text-[#A2C304] border border-[#193122] font-mono text-[11px] flex items-center gap-1.5 transition-colors"
                   >
                     <span>{sidebarCollapsed ? 'Expand Sidebar (Ctrl+B)' : 'Collapse Sidebar (Ctrl+B)'}</span>
                   </button>
@@ -695,9 +695,9 @@ export default function ConcurrencyEngineInteractive() {
                 {/* Simulated 3-Pane / Collapsible Box */}
                 <div className="rounded-xl border border-[#193122] bg-[#0B130E] overflow-hidden font-mono text-xs">
                   {/* TUI Title Bar */}
-                  <div className="bg-[#101C15] px-3 py-1.5 border-b border-[#193122] flex items-center justify-between text-[11px] text-[#86EFAC]">
+                  <div className="bg-[#101C15] px-3 py-1.5 border-b border-[#193122] flex items-center justify-between text-[11px] text-[#D4EC5B]">
                     <span>TURFCODE COCKPIT [ROOM: #7873-PITCH]</span>
-                    <span className="text-[#00E599]">● DAEMON SYNCED</span>
+                    <span className="text-[#A2C304]">● DAEMON SYNCED</span>
                   </div>
 
                   {/* Body Panes */}
@@ -705,11 +705,11 @@ export default function ConcurrencyEngineInteractive() {
                     {/* Collapsible Left Pane */}
                     {!sidebarCollapsed && (
                       <div className="col-span-4 border-r border-[#193122] p-3 space-y-2 bg-[#08120B]">
-                        <div className="text-[10px] uppercase tracking-wider text-[#00E599] font-bold">
+                        <div className="text-[10px] uppercase tracking-wider text-[#A2C304] font-bold">
                           ACTIVE LOCKS
                         </div>
                         <div className="space-y-1 text-[11px]">
-                          <div className="p-1 rounded bg-[#101C15] border border-[#193122] text-[#86EFAC]">
+                          <div className="p-1 rounded bg-[#101C15] border border-[#193122] text-[#D4EC5B]">
                             auth.ts (11s)
                           </div>
                           <div className="p-1 rounded bg-[#101C15] border border-[#193122] text-[#6B7280]">
@@ -727,7 +727,7 @@ export default function ConcurrencyEngineInteractive() {
                       <div className="text-[10px] text-[#6B7280]">
                         # Native Shell with Zero Agent Bias
                       </div>
-                      <div className="text-[#00E599]">
+                      <div className="text-[#A2C304]">
                         $ turf status --live
                       </div>
                       <div className="text-[#D1D5DB] text-[11px] leading-relaxed">
@@ -736,16 +736,16 @@ export default function ConcurrencyEngineInteractive() {
                         [03:14:24] Lock claimed: auth.ts (15s watchdog)<br />
                         [03:14:25] Rebased speculative worktree in 41ms
                       </div>
-                      <div className="flex items-center gap-1 text-[#00E599] pt-2">
+                      <div className="flex items-center gap-1 text-[#A2C304] pt-2">
                         <span>$</span>
-                        <span className="w-2 h-3.5 bg-[#00E599] animate-pulse inline-block"></span>
+                        <span className="w-2 h-3.5 bg-[#A2C304] animate-pulse inline-block"></span>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="text-xs font-mono text-[#86EFAC]/80">
-                  Tip: Use the button above to simulate the <kbd className="text-[#00E599]">Ctrl+B</kbd> sidebar collapse!
+                <div className="text-xs font-mono text-[#D4EC5B]/80">
+                  Tip: Use the button above to simulate the <kbd className="text-[#A2C304]">Ctrl+B</kbd> sidebar collapse!
                 </div>
               </div>
 
@@ -761,7 +761,7 @@ export default function ConcurrencyEngineInteractive() {
       {/* Field Rules of the Turf: 4 Unbreakable Engineering Truths */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
         <div className="p-5 rounded-xl bg-[#0B130E] border border-[#193122] space-y-2">
-          <div className="font-mono text-xs font-bold text-[#00E599]">RULE 01</div>
+          <div className="font-mono text-xs font-bold text-[#A2C304]">RULE 01</div>
           <div className="font-display font-bold text-base text-[#F0FDF4]">
             Zero Human Blocking
           </div>
@@ -771,7 +771,7 @@ export default function ConcurrencyEngineInteractive() {
         </div>
 
         <div className="p-5 rounded-xl bg-[#0B130E] border border-[#193122] space-y-2">
-          <div className="font-mono text-xs font-bold text-[#00E599]">RULE 02</div>
+          <div className="font-mono text-xs font-bold text-[#A2C304]">RULE 02</div>
           <div className="font-display font-bold text-base text-[#F0FDF4]">
             No Blind Force Pushes
           </div>
@@ -781,7 +781,7 @@ export default function ConcurrencyEngineInteractive() {
         </div>
 
         <div className="p-5 rounded-xl bg-[#0B130E] border border-[#193122] space-y-2">
-          <div className="font-mono text-xs font-bold text-[#00E599]">RULE 03</div>
+          <div className="font-mono text-xs font-bold text-[#A2C304]">RULE 03</div>
           <div className="font-display font-bold text-base text-[#F0FDF4]">
             Syntax First, Merge Second
           </div>
@@ -791,7 +791,7 @@ export default function ConcurrencyEngineInteractive() {
         </div>
 
         <div className="p-5 rounded-xl bg-[#0B130E] border border-[#193122] space-y-2">
-          <div className="font-mono text-xs font-bold text-[#00E599]">RULE 04</div>
+          <div className="font-mono text-xs font-bold text-[#A2C304]">RULE 04</div>
           <div className="font-display font-bold text-base text-[#F0FDF4]">
             Zero Agent Bias
           </div>

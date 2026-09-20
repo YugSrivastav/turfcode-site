@@ -34,14 +34,14 @@ export default function DownloadAndInstallSection() {
 
           {/* Unified Sleek Command Bar (Herdr style) */}
           <div className="space-y-3 pt-2">
-            <div className="flex items-center justify-between p-2 sm:p-2.5 pl-4 sm:pl-5 rounded-lg bg-[#0B130E] border border-[#193122] font-mono text-xs sm:text-sm text-[#86EFAC] focus-within:border-[#00E599] transition-colors shadow-turf-card max-w-2xl">
+            <div className="flex items-center justify-between p-2 sm:p-2.5 pl-4 sm:pl-5 rounded-lg bg-[#0B130E] border border-[#193122] font-mono text-xs sm:text-sm text-[#D4EC5B] focus-within:border-[#A2C304] transition-colors shadow-turf-card max-w-2xl">
               <div className="flex items-center gap-3 overflow-x-auto text-left">
-                <span className="text-[#00E599] select-none font-bold">$</span>
+                <span className="text-[#A2C304] select-none font-bold">$</span>
                 <code className="whitespace-nowrap text-[#F0FDF4] font-medium">{activeCommand}</code>
               </div>
               <button
                 onClick={handleCopy}
-                className="px-4 py-2 rounded bg-[#101C15] hover:bg-[#193122] text-[#00E599] hover:text-[#22C55E] text-xs font-mono font-bold uppercase tracking-wider border border-[#193122] transition-colors shrink-0 ml-3"
+                className="px-4 py-2 rounded bg-[#101C15] hover:bg-[#193122] text-[#A2C304] hover:text-[#B0D504] text-xs font-mono font-bold uppercase tracking-wider border border-[#193122] transition-colors shrink-0 ml-3"
                 title="Copy install command"
               >
                 {copied ? 'COPIED' : 'COPY'}
@@ -55,7 +55,7 @@ export default function DownloadAndInstallSection() {
                 <button
                   type="button"
                   onClick={() => setCurrentPlatform(currentPlatform === 'windows' ? 'unix' : 'windows')}
-                  className="text-[#86EFAC] hover:text-[#00E599] underline underline-offset-2 transition-colors font-semibold"
+                  className="text-[#D4EC5B] hover:text-[#A2C304] underline underline-offset-2 transition-colors font-semibold"
                 >
                   {currentPlatform === 'windows' ? 'switch to macOS / Linux' : 'iwr -useb https://turfcode.dev/install.ps1 | iex'}
                 </button>
@@ -63,7 +63,7 @@ export default function DownloadAndInstallSection() {
               <span>—</span>
               <a
                 href="https://github.com/YugSrivastav/turfcode-site/releases/latest/download/turfcode-setup.exe"
-                className="text-[#00E599] hover:text-[#22C55E] hover:underline flex items-center gap-1 transition-colors"
+                className="text-[#A2C304] hover:text-[#B0D504] hover:underline flex items-center gap-1 transition-colors"
               >
                 <span>Standalone Windows .exe</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -72,7 +72,7 @@ export default function DownloadAndInstallSection() {
               <button
                 type="button"
                 onClick={() => setCurrentPlatform('unix')}
-                className={`hover:text-[#00E599] transition-colors ${currentPlatform === 'unix' ? 'text-[#86EFAC]' : 'text-[#6B7280]'}`}
+                className={`hover:text-[#A2C304] transition-colors ${currentPlatform === 'unix' ? 'text-[#D4EC5B]' : 'text-[#6B7280]'}`}
               >
                 macOS & Linux (Universal)
               </button>
@@ -84,23 +84,23 @@ export default function DownloadAndInstallSection() {
             <div className="text-[11px] font-mono uppercase tracking-widest text-[#6B7280] mb-3">
               3-Step Hackathon Launch Sequence
             </div>
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono text-[#86EFAC]">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-mono text-[#D4EC5B]">
               <div className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#101C15] border border-[#193122] text-[#00E599] flex items-center justify-center font-bold text-[10px]">
+                <span className="w-5 h-5 rounded-full bg-[#101C15] border border-[#193122] text-[#A2C304] flex items-center justify-center font-bold text-[10px]">
                   1
                 </span>
                 <span>$ turf create</span>
               </div>
               <span className="text-[#193122] hidden sm:inline">•</span>
               <div className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#101C15] border border-[#193122] text-[#00E599] flex items-center justify-center font-bold text-[10px]">
+                <span className="w-5 h-5 rounded-full bg-[#101C15] border border-[#193122] text-[#A2C304] flex items-center justify-center font-bold text-[10px]">
                   2
                 </span>
                 <span>$ turf join &lt;room&gt;</span>
               </div>
               <span className="text-[#193122] hidden sm:inline">•</span>
               <div className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-[#101C15] border border-[#193122] text-[#00E599] flex items-center justify-center font-bold text-[10px]">
+                <span className="w-5 h-5 rounded-full bg-[#101C15] border border-[#193122] text-[#A2C304] flex items-center justify-center font-bold text-[10px]">
                   3
                 </span>
                 <span>$ turf start</span>
@@ -115,7 +115,7 @@ export default function DownloadAndInstallSection() {
       <div className="hidden lg:flex absolute right-[-40px] bottom-[-20px] top-0 w-1/2 items-end justify-end pointer-events-none select-none z-0 overflow-hidden pr-8 pb-4">
         {/* Giant Subtle ASCII Cat Watermark */}
         <div className="opacity-15 transform translate-x-8 translate-y-4">
-          <pre className="font-mono text-[#00E599] text-xs leading-[11px] scale-[1.8] origin-bottom-right">
+          <pre className="font-mono text-[#A2C304] text-xs leading-[11px] scale-[1.8] origin-bottom-right">
 {`
                   /\\_/\\
                  ( o.o )   HELLO /
@@ -127,7 +127,7 @@ export default function DownloadAndInstallSection() {
         </div>
 
         {/* Ambient Turf Green Radial Glow behind mascot */}
-        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] bg-[#00E599]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute right-0 bottom-0 w-[500px] h-[500px] bg-[#A2C304]/10 rounded-full blur-3xl pointer-events-none"></div>
       </div>
 
     </section>

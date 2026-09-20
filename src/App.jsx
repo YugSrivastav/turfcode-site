@@ -8,7 +8,7 @@ import FooterSection from './components/FooterSection';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#060A07] text-[#F0FDF4] selection:bg-[#00E599]/30 selection:text-[#00E599]">
+    <div className="min-h-screen flex flex-col bg-[#060A07] text-[#F0FDF4] selection:bg-[#A2C304]/30 selection:text-[#A2C304]">
       {/* 1. Fixed Navigation Bar */}
       <NavigationHeader />
 

@@ -13,11 +13,11 @@ export default {
           card: '#101C15',
           border: '#193122',
           borderLight: '#264A34',
-          neon: '#00E599',
-          emerald: '#10B981',
-          grass: '#22C55E',
+          neon: '#A2C304',
+          emerald: '#84CC16',
+          grass: '#B0D504',
           light: '#F0FDF4',
-          muted: '#86EFAC',
+          muted: '#D4EC5B',
           dim: '#6B7280',
         }
       },
@@ -27,9 +27,9 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
-        'turf-glow': '0 0 30px -5px rgba(0, 229, 153, 0.25)',
+        'turf-glow': '0 0 30px -5px rgba(162, 195, 4, 0.28)',
         'turf-card': '0 4px 20px -2px rgba(0, 0, 0, 0.7)',
-        'crt': 'inset 0 0 40px rgba(0, 229, 153, 0.08)',
+        'crt': 'inset 0 0 40px rgba(162, 195, 4, 0.08)',
       }
     },
   },

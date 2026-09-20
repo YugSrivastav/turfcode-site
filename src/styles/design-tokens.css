@@ -5,12 +5,12 @@
   --surface-border: #193122;
   --surface-border-light: #264A34;
 
-  --brand-primary: #00E599;
-  --brand-secondary: #22C55E;
-  --brand-glow: rgba(0, 229, 153, 0.25);
+  --brand-primary: #A2C304;
+  --brand-secondary: #B0D504;
+  --brand-glow: rgba(162, 195, 4, 0.28);
 
   --text-primary: #F0FDF4;
-  --text-muted: #86EFAC;
+  --text-muted: #D4EC5B;
   --text-dim: #6B7280;
 
   --space-1: 4px;
@@ -30,7 +30,7 @@
 
 /* Halftone Risograph Mesh Accent */
 .bg-turf-radial {
-  background: radial-gradient(circle at 50% 0%, rgba(0, 229, 153, 0.12) 0%, rgba(6, 10, 7, 0) 65%);
+  background: radial-gradient(circle at 50% 0%, rgba(162, 195, 4, 0.12) 0%, rgba(6, 10, 7, 0) 65%);
 }
 
 /* Retro CRT Phosphor Scanline Texture */

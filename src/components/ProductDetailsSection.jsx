@@ -11,7 +11,7 @@ export default function ProductDetailsSection() {
         {/* Section Header & The Crisis */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101C15] border border-[#193122] text-xs font-mono text-[#00E599]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#101C15] border border-[#193122] text-xs font-mono text-[#A2C304]">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>{theProblemCrisis.badge}</span>
             </div>
@@ -21,9 +21,9 @@ export default function ProductDetailsSection() {
             <p className="text-base sm:text-lg text-[#94A3B8] font-body leading-relaxed">
               {theProblemCrisis.explanation}
             </p>
-            <div className="p-5 rounded-xl bg-[#0B130E] border-l-4 border-l-[#00E599] border-y border-r border-[#193122] space-y-2 font-mono text-xs sm:text-sm">
-              <div className="text-[#00E599] font-semibold">The Cold Technical Reality:</div>
-              <p className="text-[#86EFAC]/80 leading-relaxed font-body">
+            <div className="p-5 rounded-xl bg-[#0B130E] border-l-4 border-l-[#A2C304] border-y border-r border-[#193122] space-y-2 font-mono text-xs sm:text-sm">
+              <div className="text-[#A2C304] font-semibold">The Cold Technical Reality:</div>
+              <p className="text-[#D4EC5B]/80 leading-relaxed font-body">
                 File locks prevent simultaneous overwrites, but AST drift breaks code silently. If Ayush modifies an auth signature while Yug's agent writes a caller using the old signature, both compile in isolation — but the whole app crashes when merged.
               </p>
             </div>
@@ -51,7 +51,7 @@ export default function ProductDetailsSection() {
               <h4 className="font-display font-bold text-xl text-[#F0FDF4]">
                 Team Ace of Spade
               </h4>
-              <p className="text-xs font-mono text-[#86EFAC] mt-1">
+              <p className="text-xs font-mono text-[#D4EC5B] mt-1">
                 Engineers behind the 9-Hour Turfcode Sprint
               </p>
             </div>
@@ -64,12 +64,12 @@ export default function ProductDetailsSection() {
             {teamRoster.map((member, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-[#101C15] border border-[#193122]/60 hover:border-[#00E599]/40 transition-colors"
+                className="p-4 rounded-xl bg-[#101C15] border border-[#193122]/60 hover:border-[#A2C304]/40 transition-colors"
               >
                 <div className="font-display font-bold text-sm text-[#F0FDF4]">
                   {member.name}
                 </div>
-                <div className="text-xs font-mono text-[#00E599] mt-0.5">
+                <div className="text-xs font-mono text-[#A2C304] mt-0.5">
                   {member.role}
                 </div>
                 <div className="text-[11px] text-[#6B7280] font-body mt-1">
